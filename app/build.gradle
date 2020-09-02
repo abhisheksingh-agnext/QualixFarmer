@@ -80,6 +80,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
 
     implementation 'com.romandanylyk:pageindicatorview:1.0.3'
+    implementation "com.github.franmontiel:PersistentCookieJar:v1.0.1"
 
     // Swipe layout Options
     implementation "com.daimajia.swipelayout:library:1.2.0@aar"

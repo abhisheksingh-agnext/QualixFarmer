@@ -6,7 +6,9 @@ import android.text.style.UnderlineSpan
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.agnext.qualixfarmer.R
-import com.agnext.qualixfarmer.base.*
+import com.agnext.qualixfarmer.base.BaseActivity
+import com.agnext.qualixfarmer.base.Constant
+import com.agnext.qualixfarmer.base.SessionClass
 import com.agnext.qualixfarmer.commonUi.registerUser.signUp.SignUpActivity
 import com.agnext.qualixfarmer.commonUi.splash.SplashActivity
 import com.agnext.qualixfarmer.utils.AlertUtil
@@ -120,7 +122,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener
     override fun onClick(v: View?) {
         when (v) {
             btn_login ->
-             //   viewModel.oauth()
+                viewModel.oauth()
+/*
                 if (hasConnection(this))
                     viewModel.onLoginClicked(
                         et_username.text.toString(),
@@ -129,6 +132,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener
                     )
                 else
                     AlertUtil.showToast(this, getString(R.string.internet_issue))
+*/
             tvNewUser -> {
                 IntentUtil.moveNextScreen(
                     this,

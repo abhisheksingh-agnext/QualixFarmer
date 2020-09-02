@@ -113,7 +113,7 @@ interface ApiInterface {
     fun oauth(@QueryMap query: Map<String, String>): Call<OauthResponse>
 
     @POST("/login?bearer=mobile")
-    fun qualixLogin(@Body request: HashMap<String, String>): Call<LoginResponse>
+    fun qualixLogin(@Body request: RequestBody): Call<LoginResponse>
 
     @GET("/api/commodity")
     fun getCommodity(@Header("authorization") authorization: String): Call<ArrayList<ResCommodity>>

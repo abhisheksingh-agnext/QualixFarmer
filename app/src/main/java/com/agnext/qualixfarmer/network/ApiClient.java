@@ -1,12 +1,18 @@
 package com.agnext.qualixfarmer.network;
 
+import android.content.Context;
+import android.util.Log;
+
 import com.agnext.qualixfarmer.base.Constant;
-import java.util.concurrent.TimeUnit;
+import com.franmontiel.persistentcookiejar.ClearableCookieJar;
+import com.franmontiel.persistentcookiejar.PersistentCookieJar;
+import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
+import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import timber.log.Timber;
 
 public class ApiClient {
 
@@ -31,17 +37,23 @@ public class ApiClient {
         return gsonFactory;
     }
 
-    private static OkHttpClient getOkhttpClient() {
-
-
-
-
+    private static OkHttpClient getOkhttpClient(Context... context) {
         if (okHttpClient == null) {
-            okHttpClient = new OkHttpClient.Builder()
-                    .addNetworkInterceptor(new HttpLoggingInterceptor(msg -> Timber.tag("OkHttp").d(msg))
+            OkHttpClient.Builder builder = new OkHttpClient.Builder()
+                    .addNetworkInterceptor(new HttpLoggingInterceptor(msg -> Log.d("OkHttp", msg))
                             .setLevel(HttpLoggingInterceptor.Level.BODY))
                     .addNetworkInterceptor(new RequestInterceptor())
-                    .build();
+                    .cache(null);
+
+            if (context.length != 0) {
+                Context ctx = context[0];
+                ClearableCookieJar cookieJar =
+                        new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(ctx));
+
+                builder.cookieJar(cookieJar);
+            }
+
+            okHttpClient = builder.build();
         }
         return okHttpClient;
     }
@@ -69,12 +81,12 @@ public class ApiClient {
         return scmRetrofit;
     }
 
-    public static Retrofit getQauthClient() {
+    public static Retrofit getQauthClient(Context context) {
         if (oauthRetrofit == null) {
             oauthRetrofit = new Retrofit.Builder()
                     .baseUrl(String.format("%s:8071", BASE_URL))
                     .addConverterFactory(getGsonFactory())
-                    .client(getOkhttpClient())
+                    .client(getOkhttpClient(context))
                     .build();
         }
 

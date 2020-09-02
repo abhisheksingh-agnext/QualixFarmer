@@ -8,6 +8,8 @@ import com.agnext.qualixfarmer.base.hasConnection
 import com.agnext.qualixfarmer.network.ApiClient
 import com.agnext.qualixfarmer.network.ApiInterface
 import com.agnext.qualixfarmer.network.Response.OauthResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,7 +40,7 @@ class LoginInteractor(private val context: Context) {
         val query: HashMap<String, String> = HashMap()
         query["client_id"] = "client-mobile"
         query["response_type"] = "code"
-        val apiService = ApiClient.getQauthClient().create(ApiInterface::class.java)
+        val apiService = ApiClient.getQauthClient(context).create(ApiInterface::class.java)
         val call = apiService.oauth(query)
         call.enqueue(object : Callback<OauthResponse> {
             override fun onResponse(call: Call<OauthResponse>, response: Response<OauthResponse>) {
@@ -59,9 +61,15 @@ class LoginInteractor(private val context: Context) {
     }
 
     fun qualixLogin(device_token: String, listener: OnLoginFinishedListener) {
-        val request = HashMap<String, String>()
-        val apiService = ApiClient.getQauthClient().create(ApiInterface::class.java)
-        val call = apiService.qualixLogin(request)
+        val requestBuilder = MultipartBody.Builder()
+            .setType(MultipartBody.FORM)
+        requestBuilder.addFormDataPart("Signin", "Sign+In")
+        requestBuilder.addFormDataPart("bearer", "mobile")
+        requestBuilder.addFormDataPart("username", "demooperator@gmail.com")
+        requestBuilder.addFormDataPart("password", "Specx123!")
+        val requestBody: RequestBody = requestBuilder.build()
+        val apiService = ApiClient.getQauthClient(context).create(ApiInterface::class.java)
+        val call = apiService.qualixLogin(requestBody)
         call.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 when (response.code()) {
