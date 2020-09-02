@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="40dp"
+    android:minHeight="40dp"
+android:weightSum="100">
+<TextView
+    android:id="@+id/tvTitle"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="50"
+    android:padding="@dimen/_8sdp"
+    android:text="ASPECT RATIO"
+    android:background="@drawable/bg_rectangle_noedge" />
+
+<TextView
+    android:id="@+id/tvValue"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:textColor="?textDark"
+    android:textSize="@dimen/_12sdp"
+    android:layout_weight="25"
+    android:gravity="center"
+    android:text="3"
+    android:background="@drawable/bg_rectangle_noedge"/>
+
+    <TextView
+        android:id="@+id/tvUnit"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textColor="?textDark"
+        android:textSize="@dimen/_12sdp"
+        android:layout_weight="25"
+        android:gravity="center"
+        android:text="3"
+        android:background="@drawable/bg_rectangle_noedge"/>
+
+
+</LinearLayout>

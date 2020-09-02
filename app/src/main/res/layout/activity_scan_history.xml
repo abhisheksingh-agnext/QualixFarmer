@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tea.scanHistory.ScanHistoryActivity"
+    android:orientation="vertical"
+    android:background="?bgDark">
+    <include layout="@layout/custom_toolbar"/>
+    <com.github.mikephil.charting.charts.CombinedChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="?bgLight"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp"
+                android:background="?bgLight"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="?bgLight"
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_8sdp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/lowest_flc"
+                                android:textSize="@dimen/_8sdp"
+                                android:textColor="?attr/textLight"
+                                />
+                            <!--    android:textColor="?textLight"-->
+
+                            <TextView
+                                android:id="@+id/tvLowestFLC"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="19"
+                                android:textSize="@dimen/_30sdp"
+                                android:textStyle="bold" />
+                            <!--                                        android:textColor="?textDark"-->
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginVertical="@dimen/_2sdp"
+                                android:background="?attr/colorPrimary" />
+
+
+                            <TextView
+                                android:id="@+id/tvDateHighestFLC"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="9 Jan, 2020"
+                                android:textColor="?attr/colorPrimary" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_8sdp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/highest_flc"
+                                android:textSize="@dimen/_8sdp"
+                                android:textColor="?attr/textLight"
+                                />
+                            <!--                                        android:textColor="?textLight"-->
+
+
+
+                            <TextView
+                                android:id="@+id/tvHighFLC"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="82"
+                                android:textSize="@dimen/_30sdp"
+                                android:textStyle="bold" />
+                            <!--                                    android:textColor="?textDark"-->
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginVertical="@dimen/_2sdp"
+                                android:background="?attr/colorPrimary" />
+
+
+                            <TextView
+                                android:id="@+id/tvDateLowestFLC"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="22 Jan, 2020"
+                                android:textColor="?attr/colorPrimary" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvScanHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?bgDark"
+       />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
+<include layout="@layout/layout_progress"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_centerInParent="true"/> </RelativeLayout>

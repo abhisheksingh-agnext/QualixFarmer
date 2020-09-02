@@ -1,0 +1,238 @@
+<resources>
+    <string name="app_name">Qualix Vender</string>
+    <string name="ok">ठीक</string>¬
+    <string name="cancel">रद्द करना</string>
+    <string name="agnext_text">AGNEXT</string>
+
+    <string name="title_activity_devices_list">DevicesList</string>
+    <string name="powered_by"> संचालित  द्वारा</string>
+    <string name="yes">हाँ</string>
+    <string name="no">नहीं</string>
+    <string name="close">बंद करे</string>
+    <string name="username">उपयोगकर्ता नाम</string>
+    <string name="username_required">नाम आवश्यक</string>
+    <string name="password_required">पासवर्ड आवश्यक</string>
+    <string name="password">पासवर्ड</string>
+    <string name="are_you_sure_you_want_to_logout">क्या आप लॉग आउट करना चाहते हैं?</string>
+    <string name="no_data">कोई आकड़ा उपलब्ध नहीं है</string>
+    <string name="history">इतिहास</string>
+    <string name="profile">प्रोफ़ाइल</string>
+    <string name="settings">समायोजन</string>
+
+
+    <string name="connection_timeout">कनेक्शन टाइमआउट: इंटरनेट समस्या लगती है</string>
+    <string name="server_unreachable">सर्वर पहुंच से बाहर है: लगता है कि इंटरनेट समस्या है</string>
+    <string name="IO_error">IO त्रुटि</string>
+    <string name="unknown_error">अज्ञात त्रुटि</string>
+    <string name="session_expired">सत्र समाप्त हुआ</string>
+
+    <string name="error_fetchingTrackingDetail">त्रुटि!</string>
+    <string name="error_fetchingTrackingDetail_text">कृपया पुन: प्रयास करें।</string>
+
+    <string name="connection_error">कनेक्शन त्रुटि !</string>
+    <string name="connection_error_detail">कृपया अपने इंटरनेट कनेक्शन की जाँच करें</string>
+
+    <string name="double_click_to_exit">कृपया बाहर निकलने के लिए फिर से क्लिक करें</string>
+    <string name="allow_permission">आपको अनुमतियों तक पहुंच की अनुमति देने की आवश्यकता है</string>
+    <string name="upload">डालना</string>
+    <string name="farmer_code">किसान कोड</string>
+    <string name="father_name">पिता का नाम</string>
+    <string name="name">नाम</string>
+    <string name="sample_name">नमूना नाम</string>
+    <string name="gender">लिंग</string>
+    <string name="male">पुरुष</string>
+    <string name="female">महिला</string>
+    <string name="contact_number">संपर्क संख्या</string>
+    <string name="aadhaar_number">आधार संख्या</string>
+    <string name="sample_aadhaar_number">नमूना आधार संख्या</string>
+    <string name="address">पता</string>
+    <string name="sample_address">नमूना पता</string>
+    <string name="city">शहर</string>
+    <string name="state">राज्य</string>
+    <string name="sample_state">नमूना राज्य</string>
+    <string name="district">जिला</string>
+    <string name="sample_district">sample district</string>
+    <string name="zip">ZIP</string>
+    <string name="country">देश</string>
+    <string name="save">सहेजें</string>
+    <string name="sample_contact_number">नमूना संपर्क नंबर</string>
+    <string name="farm_code">खेत का कोड</string>
+    <string name="season">मौसम</string>
+    <string name="crop">फसल</string>
+    <string name="variety">प्रकार</string>
+    <string name="start_date">आरंभ  तिथि</string>
+    <string name="end_date">अंतिम तिथि</string>
+    <string name="enter_district">Enter district</string>
+    <string name="area">क्षेत्र</string>
+    <string name="sample_area">हेक्टेयर में क्षेत्र दर्ज करें</string>
+    <string name="link_farmer">लिंक किसान</string>
+    <string name="your_plot_is_successfully_added">आपका प्लॉट सफलतापूर्वक जुड़ गया है</string>
+    <string name="mark_field_boundary">निशान क्षेत्र की सीमा</string>
+    <string name="add_field"> खेत</string>
+    <string name="qrcode">क्यूआर कोड</string>
+    <string name="season_code">सीज़न कोड</string>
+    <string name="sample_season">नमूना मौसम</string>
+    <string name="sample_crop_type">नमूना फसल प्रकार</string>
+
+    <string name="add_boundaries">सीमाएँ जोड़ें</string>
+    <string name="open_settings">सेटिंग्स खोलें</string>
+    <string name="edit">संपादित करें</string>
+    <string name="quality_analysis">गुणवत्ता विश्लेषण</string>
+    <string name="farm">खेत</string>
+    <string name="crop_calendar">फसल कैलेंडर</string>
+    <string name="qr_code">क्यूआर कोड</string>
+    <string name="logout">लॉग आउट</string>
+    <string name="time">समय </string>
+    <string name="date">दिनांक </string>
+    <string name="sample_consignment">नमूना आईडी : </string>
+    <string name="done_by">कृत: </string>
+    <string name="done_on"> दिनांक : </string>
+    <string name="at">  को  </string>
+    <string name="flc">FLC  </string>
+    <string name="tea_scan">चाय स्कैन</string>
+
+    <string name="info_details_infoScreen">सटीक परिणाम प्राप्त करने के लिए निम्नलिखित बातों का ध्यान रखना चाहिए - \ n \ n
+         • छवियों को एक ही कैमरे के साथ लिया जाना चाहिए। \ n
+         • चित्र ऊर्ध्वाधर अभिविन्यास में होने चाहिए। \ n
+         • कैमरा न्यूनतम 12 एमपी का होना चाहिए। \ n
+         • कैमरे को केवल चाय की पत्तियों को ही कवर करना चाहिए। \ n
+         • शीट से कैमरे की सुझाई गई ऊंचाई 36 से 40 इंच के बीच होनी चाहिए। \ n
+         • डॉन टी ज़ूम सफेद छवियों पर कब्जा। \ n
+         • सफेद पृष्ठभूमि पर पत्तियां रखते समय लगभग 2 सेमी का साइड मार्जिन रखें (पत्ती को सीमाओं को स्पर्श नहीं करना चाहिए)। \ n
+         • उचित दिन के उजाले में कैद, धूप में नहीं (छाया बनाएंगे)। \ n
+         • सफेद चार्ट पेपर या सफेद बैनर का उपयोग करें। \ n
+         • एक छवि में 10 से 35 झुंडों के बीच होना चाहिए। \ n
+         • परीक्षण करने के लिए गुच्छा की कुल संख्या 130 से 150 के बीच होनी चाहिए। \ n
+         • गुच्छों के बीच 2 इंच की दूरी बनाए रखें।
+    </string>
+
+
+    <string name="please_upload_image">कृपया छवि अपलोड करें</string>
+    <string name="you_uploaded_a_wrong_image_please_upload_the_correct_image">You uploaded a wrong image. Please upload the correct image</string>
+    <string name="OnOff_flashlight">टॉर्च पर / बंद</string>
+    <string name="OnOff_QR_decoding">On/Off QR decoding</string>
+
+    <string name="flc_percentage">FLC प्रतिशत</string>
+    <string name="one_bud">एक कली :</string>
+    <string name="one_leaf">एक पत्ती :</string>
+    <string name="two_leaves">दो पत्ती :</string>
+    <string name="three_leaves">तीन पत्ती :</string>
+    <string name="two_leaves_bud">दो पत्ती की कली  :</string>
+    <string name="three_leaves_bud">तीन पत्ती की कली  :</string>
+    <string name="one_banjhi">एक बंजारी  :</string>
+    <string name="two_leaves_banjhi"> दो पत्ती बंजारी :</string>
+    <string name="three_leaves_banjhi">तीन पत्ती बंजारी  :</string>
+    <string name="one_leaf_bud">एक पत्ती की कली</string>
+
+
+    <string name="daily">आज</string>
+    <string name="weekly">साप्ताहिक</string>
+    <string name="monthly">मासिक</string>
+    <string name="custom">रिवाज</string>
+    <string name="all_warehouse">All WareHouse</string>
+    <string name="scan">स्कैन</string>
+    <string name="qualix_ware">Qualix Ware</string>
+    <string name="warehouse_id">वेयरहाउस आईडी</string>
+    <string name="invoice_number">बीजक संख्या</string>
+    <string name="truck_number">ट्रक का नंबर</string>
+    <string name="crop_variety">फसल की किस्म</string>
+    <string name="delivery_date">डिलीवरी  तारीख</string>
+    <string name="request_date">अनुरोध दिनांक</string>
+    <string name="scan_history">स्कैन इतिहास</string>
+    <string name="payment_history">भुगतान इतिहास</string>
+    <string name="notification">अधिसूचना</string>
+    <string name="dark_theme">डार्क थीम</string>
+    <string name="setting">व्यवस्था</string>
+    <string name="language">भाषा</string>
+    <string name="lowest_flc">सबसे कम FLC</string>
+    <string name="highest_flc">उच्चतम FLC</string>
+    <string name="flc_count">Flc अंक</string>
+    <string name="no_of_scans"> स्कैन  संख्या</string>
+    <string name="error_login">लॉगिन में त्रुटि</string>
+    <string name="error_login_text">लॉगिन में त्रुटि</string>
+    <string name="weight">वजन</string>
+    <string name="payment">भुगतान </string>
+
+    <string name="amount">रकम</string>
+    <string name="payment_status">भुगतान  स्थिति</string>
+    <string name="crop_calender">फसल कैलेंडर</string>
+    <string name="farmer_field">किसान खेत</string>
+    <string name="scan_detail">स्कैन विवरण</string>
+    <string name="internet_issue">इंटरनेट का विवाद</string>
+    <string name="today">आज</string>
+    <string name="total">कुल</string>
+    <string name="scans_done">स्कैन किया</string>
+    <string name="monthly_sales">मासिक विक्रय</string>
+    <string name="quality_score">गुणवत्ता स्कोर</string>
+    <string name="swipe_right">दाहिने करें</string>
+    <string name="performance">प्रदर्शन</string>
+    <string name="today_s_sale">आज की बिक्री</string>
+    <string name="weekly_sales">साप्ताहिक बिक्री</string>
+    <string name="farmer_id">किसान आई.डी.</string>
+    <string name="view_all">सभी देखें</string>
+    <string name="accept_rate">दर स्वीकार करें</string>
+    <string name="logout_text">क्या आप निश्चित हैं, लॉगआउट करना चाहते हैं</string>
+    <string name="reference_id">संदर्भ पहचान पत्र</string>
+    <string name="total_count">कुल संख्या</string>
+    <string name="commodity_name">फसल का नाम</string>
+    <string name="unit">इकाई</string>
+    <string name="fill_all_fields">सभी फ़ील्ड भरें</string>
+    <string name="not_able_to_get_crops">फसलें प्राप्त करने में सक्षम नहीं</string>
+    <string name="not_able_to_get_crops_variety">फसलों की विविधता प्राप्त करने में सक्षम नहीं है</string>
+    <string name="batch_Id">बैच आईडी</string>
+        <string name="crop_name">फसल का नाम</string>
+    <string name="crop_type">फसल का प्रकार</string>
+    <string name="analysis_name">विश्लेषण नाम</string>
+    <string name="value">मूल्य</string>
+    <string name="information">जानकारी</string>
+    <string name="update">Update</string>
+    <string name="scan_done_detail">Scan  Detail</string>
+    <string name="add_all_fields">Add all fields</string>
+    <string name="token_expire">Token expire</string>
+    <string name="user_code">User Code</string>
+    <string name="contact_no">Contact no.</string>
+    <string name="email">Email</string>
+    <string name="company_name">Company Name</string>
+    <string name="user_status">User Status</string>
+    <string name="role">Role</string>
+
+
+    <string-array name="array_garden">
+        <item>No Garden</item>
+    </string-array>
+
+    <string-array name="array_division">
+        <item>No Division</item>
+    </string-array>
+
+    <string-array name="array_section">
+        <item>No Section</item>
+    </string-array>
+
+    <string-array name="array_weight_type">
+        <item>Kg</item>
+    </string-array>
+
+    <string-array name="array_area_type">
+        <item>Acre</item>
+        <item>Hectare</item>
+    </string-array>
+
+
+    <string-array name="array_company">
+        <item>Company 1</item>
+        <item>Company 2</item>
+        <item>Company 3</item>
+    </string-array>
+    <string-array name="array_filter">
+        <item>साप्ताहिक</item>
+        <item>मासिक</item>
+    </string-array>
+
+    <string-array name="array_language">
+        <item>English</item>
+        <item>हिंदी</item>
+    </string-array>
+
+</resources>
+<!--<item>आज</item>-->

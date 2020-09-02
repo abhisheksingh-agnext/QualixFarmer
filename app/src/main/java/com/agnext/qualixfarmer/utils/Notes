@@ -1,0 +1,128 @@
+  Response{protocol=http/1.1, code=404, message=, url=http://23.98.216.140:5678/api/user/scans/avg}
+
+  http://23.98.216.140:5678/api/companies/user/scans?p=0&l=100&dateFrom=03%2F16%2F2020&dateTo=03%2F16%2F2020 (593ms)
+  http://23.98.216.140:9992/api/physical-scans?v=1&p=0&l=100&dateFrom=1584297000000&dateTo=1584335124232
+
+  http://23.98.216.140:9992/api/scans/vendor?v=1
+
+  First time Login
+   -Splash (LoggedIn or not)
+    1  LoggedIn==> Home of app
+    2  Not ==>Login Screen
+
+   - Login Screen
+    1 Base url
+    2 Theme of App
+    3 Move to splash
+
+
+
+        /**UI  State Observer*/
+        /**System Override methods*/
+        /**User Callback methods*/
+    	/**Logical methods*/
+   -------------------------------------------------
+     /**InitView*/
+         fun initView()
+         {
+             //setting toolbar
+             toolbar.title=""
+             setSupportActionBar(toolbar)
+             //enabling back button
+             supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+             supportActionBar!!.setDisplayShowHomeEnabled(true)
+         }
+
+   -------------------------------------------------
+            /**SetData*/
+              fun SetData()
+                  {}
+   -------------------------------------------------
+
+  /**System Override methods*/
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
+
+-----------------------------------------------------
+1  View.OnClickListener
+
+2  override fun onClick(view: View?) {
+        when(view)
+        {}
+    }
+
+3  //Register the click listener
+cvImageView_FD.setOnClickListener(this)
+---------------------------------------------------
+AdapterView.OnItemSelectedListener
+
+  //Spinner Callback
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+    }
+
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+    }
+---------------------------------
+
+java bean(xml)used in (servlets)
+Juice ==>Reflection, no xml
+Dagger 1 (Square)
+ reflection used for instance initialization, after that not used
+
+ D2 everything at runtime(annotation processing)/no reflection is used
+
+ ---------------
+ 3 Components
+
+ 1 Provider of D
+    -(module)
+ 2 Facilitator of D
+   - (Components)
+   - this connect the both
+
+ 3 Consumer of D
+    - Any class with (@injector)  ==>JSL(Java standard Library)
+
+   ---------------------
+ 4 Basic Annotation
+   Annotation(Create a interface,enum ,annotation) meta data(info. about a class )
+   eg for on click listener we ann any method with @OnClick ann to find certain piece of code it's runtime
+
+  1 @Module       (Class)  =>dependency provider
+  2 @Components    (Interface)
+  3 @Provider      (Method)==>help to provider
+  4 @Inject        (Constructor and Field)
+
+
+@Module
+Class ActivityModule
+{
+
+@Provider
+fun provideComputer()
+{
+computer=Computer()}
+
+
+}
+
+
+-----------------
+Date Picker
+
+In this library
+ a) User call method ----- and get the selected date from picker in String return.
+ b) ----------- method provide Today date
+
+User need to provide the
+ 1 Date syntax in which user want the date return.
+// 2 View in which it want to set the date  eg. TextView,EditextView , etc
+
+
+Process to create the Android library
+
+1 Create the Project <DatePickerDemo>
+2 Create the Android Library<DatePickerUtil> in project

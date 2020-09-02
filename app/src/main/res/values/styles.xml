@@ -1,0 +1,96 @@
+<resources>
+
+    <attr name="textDark" format="reference|color" />
+    <attr name="textLight" format="reference|color" />
+
+    <attr name="bgDark" format="reference|color" />
+    <attr name="bgLight" format="reference|color" />
+    <attr name="bgCard" format="reference|color" />
+
+    <attr name="textHighlight" format="reference|color" />
+    <attr name="textHighlight2" format="reference|color" />
+
+
+    <style name="AppTheme.1.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <!--BLACK THEME-->
+    <style name="AppTheme.0" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary0</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark0</item>
+        <item name="colorAccent">@color/colorAccent0</item>
+
+        <item name="textDark">@color/textDark0</item>
+        <item name="textLight">@color/textLight0</item>
+
+        <item name="bgDark">@color/bgDark0</item>
+        <item name="bgLight">@color/bgLight0</item>
+        <item name="bgCard">@color/colorPrimary0</item>
+
+
+        <item name="android:textColor">@color/textDark0</item>
+        <item name="textHighlight">@color/colorPrimary1</item>
+        <item name="textHighlight2">@color/color</item>
+        <item name="android:popupBackground">@color/average_grey</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/bgLight0</item>
+    </style>
+
+
+    <!--TEA THEME-->
+    <style name="AppTheme.1" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary1</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark1</item>
+        <item name="colorAccent">@color/colorAccent1</item>
+
+        <item name="textDark">@color/textDark</item>
+        <item name="textLight">@color/textLight</item>
+
+        <item name="bgDark">@color/bgDark</item>
+        <item name="bgLight">@color/bgLight</item>
+        <item name="bgCard">@color/bgLight</item>
+
+        <item name="android:textColor">@color/textDark</item>
+        <item name="textHighlight">@color/colorPrimary1</item>
+        <item name="textHighlight2">@color/green</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/bgLight</item>
+
+    </style>
+
+
+    <!--WAREHOUSE THEME  (Specx Physical)-->
+    <style name="AppTheme.2" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary2</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark2</item>
+        <item name="colorAccent">@color/colorAccent2</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--WAREHOUSE THEME  (Specx Chemical)-->
+    <style name="AppTheme.3" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary3</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark3</item>
+        <item name="colorAccent">@color/colorAccent2</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="spinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textColor">#000000</item>
+    </style>
+</resources>
+

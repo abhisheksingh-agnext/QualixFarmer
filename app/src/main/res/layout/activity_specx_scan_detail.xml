@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".tea.scanDetail.ScanDetailActivity"
+    android:background="?bgDark">
+    <include layout="@layout/custom_toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginVertical="@dimen/_8sdp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <!--Card 1-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardBackgroundColor="?bgLight">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_gravity="right"
+                    android:gravity="right">
+
+                    <LinearLayout
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total_count"
+                            android:textColor="?textDark"/>
+                        <TextView
+                            android:id="@+id/tvCount"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="23"
+                            android:textColor="?textHighlight"
+                            android:layout_marginLeft="@dimen/_16sdp"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/reference_id"
+                            android:textColor="?textLight" />
+                        <TextView
+                            android:id="@+id/tvReference"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Rice"
+                            android:textColor="?textHighlight"
+                            android:layout_marginLeft="@dimen/_16sdp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"                            android:layout_height="wrap_content"
+                            android:text="@string/commodity_name"
+                            android:textColor="?textLight" />
+                        <TextView
+                            android:id="@+id/tvCommodity"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="section2"
+                            android:textColor="?textHighlight"
+                            android:textSize="@dimen/_12sdp"
+                            android:layout_marginLeft="@dimen/_16sdp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!--Card 2-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardBackgroundColor="?bgLight">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="right"
+                    android:gravity="right">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/scan_detail"
+                            android:textColor="?textDark"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+                        <LinearLayout
+                            xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:minHeight="40dp"
+                            android:weightSum="100">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="50"
+                                android:padding="@dimen/_8sdp"
+                                android:text="@string/information"
+                                android:textStyle="bold|italic"
+
+                                android:background="@drawable/bg_rectangle_noedge" />
+
+                            <TextView
+                                android:id="@+id/tvAspect"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:textColor="?textDark"
+                                android:textSize="@dimen/_12sdp"
+                                android:layout_weight="25"
+                                android:gravity="center"
+                                android:text="@string/value"
+                                android:textStyle="bold|italic"
+                                android:background="@drawable/bg_rectangle_noedge"/>
+
+                            <TextView
+                                android:id="@+id/tvAspectUnit"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:textColor="?textDark"
+                                android:textSize="@dimen/_12sdp"
+                                android:layout_weight="25"
+                                android:gravity="center"
+                                android:text="@string/unit"
+                                android:textStyle="bold|italic"
+                                android:background="@drawable/bg_rectangle_noedge"/>
+
+
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvScanInfo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+    <include
+        android:id="@+id/progress"
+        layout="@layout/layout_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

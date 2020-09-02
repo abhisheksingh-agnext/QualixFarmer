@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Color Code 0-->
+
+    <color name="colorPrimary0">#000000</color>
+    <color name="colorPrimaryDark0">#000000</color>
+    <color name="colorAccent0">#FFFFFF</color>
+
+    <color name="textDark0">#FFFFFF</color>
+    <color name="textLight0">#C9C7C7</color>
+    <color name="bgDark0">#282727</color>
+    <color name="bgLight0">#717070</color>
+
+
+
+    <!--All Common color-->
+    <color name="textDark">#000000</color>
+    <color name="textLight">#717070</color>
+        <color name="bgDark">#FFFFFF</color>
+    <color name="bgLight">#F1F0F0</color>
+
+
+    <!--Color Code 1-->
+
+    <color name="colorPrimary1">#fab231</color>
+    <color name="colorPrimaryDark1">#F09F0D</color>
+    <color name="colorAccent1">#d9534f</color>
+
+
+
+    <!--Color Code 2-->
+
+    <color name="colorPrimary2">#631CE0</color>
+    <color name="colorPrimaryDark2">#631CE0</color>
+    <color name="colorAccent2">#d9534f</color>
+
+
+
+    <!--Color Code 3-->
+
+    <color name="colorPrimary3">#55b02f</color>
+    <color name="colorPrimaryDark3">#159b14</color>
+    <color name="colorAccent3">#55b02f</color>
+
+
+
+    <color name="dark_text">#6f6b6b</color>
+    <color name="orange_100">#ffe0b2</color>
+    <color name="green_100">#a3e9a4</color>
+
+    <color name="graphLightGreen">#94EB8D</color>
+    <color name="graphDarkGreen">#23931A</color>
+    <color name="font">#75777b</color>
+    <color name="bg_dark">#27303f</color>
+    <color name="bg_light">#4f596b</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="light_bg">#f7f7f7</color>
+    <color name="trans_grey">#a04c4c50</color>
+    <color name="white">#ffffff</color>
+    <color name="light_grey">#f2f2f2</color>
+    <color name="lighter_grey">#d3d3d3</color>
+    <color name="medium_grey">#b1b1b1</color>
+    <color name="average_grey">#4c4c50</color>
+    <color name="dark_grey">#232325</color>
+    <color name="black">#000000</color>
+    <color name="golden">#c1982b</color>
+
+    <color name="trans_blue">#b65192ce</color>
+    <color name="blue">#5192ce</color>
+    <color name="dark_blue">#136eb1</color>
+    <color name="c">#cebd30</color>
+    <color name="light_orange">#f29720</color>
+    <color name="orange">#fe4c13</color>
+    <color name="red">#ff0000</color>
+    <color name="light_red">#d9534f</color>
+    <color name="green">#55b02f</color>
+    <color name="dark_green">#159b14</color>
+    <color name="trans_green">#1f55b02f</color>
+    <color name="unselectedTab">#b2d0aa</color>
+    <color name="colorGrey50">#fafafa</color>
+    <color name="background_grey">#f6f6f6</color>
+    <color name="payment_card_bg">#6a6d8c</color>
+
+
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrey">#D1CDCD</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="activity_bg_black">#374046</color>
+    <color name="color">#2196F3</color>
+    <color name="card_year">#018786</color>
+
+</resources>

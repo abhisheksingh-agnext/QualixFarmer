@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?bgDark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:orientation="vertical">
+
+        <include layout="@layout/custom_toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="100"
+            android:background="?bgDark">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="100"
+                android:orientation="vertical">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    app:boxBackgroundColor="@color/background_grey">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@string/farm_code"
+                        android:textColor="?textLight"
+                        android:paddingLeft="10dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                        android:id="@+id/tvFarmCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColor="?textDark"
+                    android:textColorHint="?textDark"
+
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:paddingLeft="10dp"
+                    android:editable="false"/>
+                <!--                <com.google.android.material.textfield.TextInputEditText-->
+                <!--                        android:id="@+id/tvFarmCode"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:singleLine="true"-->
+                <!--                    android:layout_marginLeft="15dp"-->
+                <!--                    android:layout_marginRight="15dp"-->
+                <!--                    android:textColor="?textDark"-->
+                <!--                    android:textColorHint="?textDark"-->
+
+                <!--                    android:hint="@string/farm_code"-->
+                <!--                    android:digits="qwertyuiopasdfghjklzxcvbnm 1234567890 QWERTYUIOPASDFGHJKLZXCVBNM"-->
+                <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
+                <!--                    android:paddingLeft="10dp"-->
+                <!--                    android:editable="false"/>-->
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    app:boxBackgroundColor="@color/background_grey">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@string/name"
+                        android:textColor="?textLight"
+                        android:paddingLeft="10dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvFarmName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:hint="@string/name"
+                    android:textColor="?textDark"
+                    android:textColorHint="?textDark"                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:paddingLeft="10dp" />
+
+                <!--                <Space-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="5dp" />-->
+
+                <!--                <com.google.android.material.textfield.TextInputLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginLeft="15dp"-->
+                <!--                    android:layout_marginRight="15dp"-->
+                <!--                    app:boxBackgroundColor="@color/background_grey"-->
+                <!--                    fontPath="fonts/Poppins-Regular.ttf"-->
+                <!--                    tools:ignore="MissingPrefix">-->
+
+                <!--                    <TextView-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:hint="@string/father_name"-->
+                <!--                        android:singleLine="true"-->
+                <!--                        android:text="@string/season"-->
+                <!--                        android:textColor="?textLight"-->
+                <!--                        android:paddingLeft="10dp"-->
+                <!--                        fontPath="fonts/Poppins-Regular.ttf"-->
+                <!--                        tools:ignore="MissingPrefix" />-->
+
+                <!--                </com.google.android.material.textfield.TextInputLayout>-->
+
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    android:weightSum="100"-->
+                <!--                    android:layout_marginLeft="15dp"-->
+                <!--                    android:layout_marginRight="15dp"-->
+                <!--                    android:paddingLeft="10dp">-->
+
+                <!--                    <Spinner-->
+                <!--                        android:id="@+id/spinnerSeason"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="85"-->
+                <!--                        />-->
+
+                <!--                    <ImageView-->
+                <!--                        android:id="@+id/addSeason"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="45dp"-->
+                <!--                        android:layout_weight="15"-->
+                <!--                        android:src="@drawable/ic_add"-->
+                <!--                        android:padding="5dp"-->
+                <!--                        android:tint="?bgLight" />-->
+
+
+                <!--                </LinearLayout>-->
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            app:boxBackgroundColor="@color/background_grey">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="@string/crop"
+                                android:textColor="?textLight"
+                                android:paddingLeft="10dp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/tvCropName"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:singleLine="true"-->
+                        <!--                            android:layout_marginLeft="15dp"-->
+                        <!--                            android:layout_marginRight="15dp"-->
+                        <!--                            android:padding="10dp"-->
+                        <!--                            android:textColor="?textDark"-->
+                        <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
+                        <!--                            fontPath="fonts/Poppins-Regular.ttf"-->
+                        <!--                            tools:ignore="MissingPrefix" />-->
+                        <Spinner
+                            android:id="@+id/spinnerCrop"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="85"
+                            android:paddingLeft="10dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            app:boxBackgroundColor="@color/background_grey">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="@string/variety"
+                                android:textColor="?textLight"
+                                android:paddingLeft="10dp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/tvCropVariety"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:singleLine="true"-->
+                        <!--                            android:layout_marginLeft="15dp"-->
+                        <!--                            android:layout_marginRight="15dp"-->
+                        <!--                            android:padding="10dp"-->
+                        <!--                            android:textColor="?textDark"-->
+                        <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
+                        <!--                            fontPath="fonts/Poppins-Regular.ttf"-->
+                        <!--                            tools:ignore="MissingPrefix" />-->
+                        <Spinner
+                            android:id="@+id/spinnerCropVariety"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="85"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--                <Space-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="5dp" />-->
+
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    android:weightSum="2">-->
+
+                <!--                    <LinearLayout-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:orientation="vertical">-->
+
+                <!--                        <com.google.android.material.textfield.TextInputLayout-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_marginLeft="15dp"-->
+                <!--                            android:layout_marginRight="15dp"-->
+                <!--                            app:boxBackgroundColor="@color/background_grey">-->
+
+                <!--                            <TextView-->
+                <!--                                android:layout_width="match_parent"-->
+                <!--                                android:layout_height="wrap_content"-->
+                <!--                                android:singleLine="true"-->
+                <!--                                android:text="@string/start_date"-->
+                <!--                                android:textColor="?textLight"-->
+                <!--                                android:paddingLeft="10dp" />-->
+
+                <!--                        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+                <!--                        <TextView-->
+                <!--                            android:id="@+id/tvStartDate"-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:singleLine="true"-->
+                <!--                            android:layout_marginLeft="15dp"-->
+                <!--                            android:layout_marginRight="15dp"-->
+                <!--                            android:padding="10dp"-->
+                <!--                            android:textColor="?textDark"-->
+                <!--                            android:drawableRight="@drawable/ic_date"-->
+                <!--                            android:drawablePadding="20dp"-->
+                <!--                            android:drawableTint="?textDark"-->
+                <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
+                <!--                            fontPath="fonts/Poppins-Regular.ttf"-->
+                <!--                            tools:ignore="MissingPrefix" />-->
+
+
+                <!--                    </LinearLayout>-->
+
+                <!--                    <LinearLayout-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:orientation="vertical">-->
+
+                <!--                        <com.google.android.material.textfield.TextInputLayout-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_marginLeft="15dp"-->
+                <!--                            android:layout_marginRight="15dp"-->
+                <!--                            app:boxBackgroundColor="@color/background_grey">-->
+
+                <!--                            <TextView-->
+                <!--                                android:layout_width="match_parent"-->
+                <!--                                android:layout_height="wrap_content"-->
+                <!--                                android:singleLine="true"-->
+                <!--                                android:text="@string/end_date"-->
+                <!--                                android:textColor="?textLight"-->
+                <!--                                android:paddingLeft="10dp" />-->
+
+                <!--                        </com.google.android.material.textfield.TextInputLayout>-->
+
+                <!--                        <TextView-->
+                <!--                            android:id="@+id/tvEndDate"-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:singleLine="true"-->
+                <!--                            android:layout_marginLeft="15dp"-->
+                <!--                            android:layout_marginRight="15dp"-->
+                <!--                            android:padding="10dp"-->
+                <!--                            android:drawableRight="@drawable/ic_date"-->
+                <!--                            android:drawablePadding="20dp"-->
+                <!--                            android:drawableTint="?textDark"-->
+                <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
+                <!--                            fontPath="fonts/Poppins-Regular.ttf"-->
+                <!--                            tools:ignore="MissingPrefix"-->
+                <!--                            android:textColor="?textDark"/>-->
+
+
+                <!--                    </LinearLayout>-->
+
+
+                <!--                </LinearLayout>-->
+
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    app:boxBackgroundColor="@color/background_grey">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@string/district"
+                        android:textColor="?textLight"
+                        android:paddingLeft="10dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvDistrict"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:hint="@string/enter_district"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:paddingLeft="10dp"
+                    android:textColor="?textDark"
+                    android:textColorHint="?textDark"
+                    />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    app:boxBackgroundColor="@color/background_grey">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@string/area"
+                        android:textColor="?textLight"
+                        android:paddingLeft="10dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:hint="@string/sample_area"
+                    android:textColor="?textDark"
+                    android:textColorHint="?textDark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:paddingLeft="10dp" />
+
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    app:boxBackgroundColor="@color/background_grey">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@string/address"
+                        android:textColor="?textLight"
+                        android:paddingLeft="10dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:hint="@string/address"
+                    android:textColor="?textDark"
+                    android:textColorHint="?textDark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:paddingLeft="10dp" />
+
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <TextView
+                    android:id="@+id/tvPlotAdded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/your_plot_is_successfully_added"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:visibility="gone" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+
+                <Button
+                    android:id="@+id/btnMarkField"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:text="@string/mark_field_boundary"
+                    android:background="?attr/colorPrimary"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"
+                    android:visibility="gone" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cdFarmMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="5dp">
+
+                        <fragment
+                            android:id="@+id/mapUpdateFieldDetail"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <Button
+                    android:id="@+id/btAddBoundary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:text="Update the boundary"
+                    android:textColor="@color/colorWhite"
+                    android:background="?attr/colorPrimary" />
+
+
+
+                <Button
+                    android:id="@+id/btnAddFarm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:text="@string/update"
+                    android:background="?attr/colorPrimary"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/layout_progress"
+        android:visibility="gone"
+        />
+
+
+    <include
+        layout="@layout/no_text"
+        android:visibility="gone"
+        android:id="@+id/noData" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

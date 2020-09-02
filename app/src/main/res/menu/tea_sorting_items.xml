@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_daily"
+        android:enabled="true"
+        android:icon="@drawable/ic_quality"
+        android:iconTint="@color/colorWhite"
+        android:title="@string/daily"
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/action_weekly"
+        android:enabled="true"
+        android:icon="@drawable/ic_quality"
+        android:iconTint="@color/colorWhite"
+        android:title="@string/weekly"
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/action_monthly"
+        android:enabled="true"
+        android:icon="@drawable/ic_quality"
+        android:iconTint="@color/colorWhite"
+        android:title="@string/monthly"
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/action_custom"
+        android:enabled="true"
+        android:icon="@drawable/ic_quality"
+        android:iconTint="@color/colorWhite"
+        android:title="@string/custom"
+        app:showAsAction="collapseActionView" />
+
+
+</menu>

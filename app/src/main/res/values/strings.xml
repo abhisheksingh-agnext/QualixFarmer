@@ -1,0 +1,240 @@
+<resources>
+    <string name="app_name">Qualix Vender</string>
+    <string name="ok">ok</string>
+    <string name="cancel">cancel</string>
+    <string name="agnext_text">AGNEXT</string>
+
+    <string name="title_activity_devices_list">DevicesList</string>
+    <string name="powered_by">Powered by </string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="close">CLOSE</string>
+    <string name="username">Username</string>
+    <string name="username_required">Username required</string>
+    <string name="password_required">Password required</string>
+    <string name="password">Password</string>
+    <string name="are_you_sure_you_want_to_logout">Are you sure, you want to logout?</string>
+    <string name="no_data">No data</string>
+    <string name="history">History</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+
+
+    <string name="connection_timeout">Connection timeout: seems to be internet issue</string>
+    <string name="server_unreachable">Server unreachable: seems to be internet issue</string>
+    <string name="IO_error">IO error</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="session_expired">Session expired</string>
+
+    <string name="error_fetchingTrackingDetail">Error!</string>
+    <string name="error_fetchingTrackingDetail_text">Please try again.</string>
+
+    <string name="connection_error">Connection Error !</string>
+    <string name="connection_error_detail">Please check your internet connection</string>
+
+    <string name="double_click_to_exit">Please click back again to exit</string>
+    <string name="allow_permission">You need to allow access to the permissions</string>
+    <string name="upload">Upload</string>
+    <string name="farmer_code">Farmer code</string>
+    <string name="father_name">Father name</string>
+    <string name="name">Name</string>
+    <string name="sample_name">Sample name</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="contact_number">Contact number</string>
+    <string name="aadhaar_number">Aadhaar number</string>
+    <string name="sample_aadhaar_number">sample aadhaar number</string>
+    <string name="address">Address</string>
+    <string name="sample_address">sample address</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="sample_state">sample state</string>
+    <string name="district">District</string>
+    <string name="sample_district">sample district</string>
+    <string name="zip">ZIP</string>
+    <string name="country">Country</string>
+    <string name="save">Save</string>
+    <string name="sample_contact_number">sample contact number</string>
+    <string name="farm_code">Farm code</string>
+    <string name="season">Season</string>
+    <string name="crop">Crop</string>
+    <string name="variety">Variety</string>
+    <string name="start_date">Start date</string>
+    <string name="end_date">End Date</string>
+    <string name="enter_district">Enter district</string>
+    <string name="area">Area</string>
+    <string name="sample_area">Enter area in Hectare</string>
+    <string name="link_farmer">Link farmer</string>
+    <string name="your_plot_is_successfully_added">Your plot is successfully added</string>
+    <string name="mark_field_boundary">Mark field boundary</string>
+    <string name="add_field"> Field</string>
+    <string name="qrcode">QR code</string>
+    <string name="season_code">Season code</string>
+    <string name="sample_season">Sample season</string>
+    <string name="sample_crop_type">sample crop type</string>
+
+    <string name="add_boundaries">Add boundaries</string>
+    <string name="open_settings">open settings</string>
+    <string name="edit">Edit</string>
+    <string name="quality_analysis">Quality Analysis</string>
+    <string name="farm">Farm</string>
+    <string name="crop_calendar">Crop calendar</string>
+    <string name="qr_code">QR Code</string>
+    <string name="logout">Logout</string>
+    <string name="time">Time :</string>
+    <string name="date">Date :</string>
+    <string name="sample_consignment">Scan Id : </string>
+    <string name="done_by">Done by : </string>
+    <string name="done_on">Done On : </string>
+    <string name="at"> at </string>
+    <string name="flc">FLC : </string>
+    <string name="tea_scan">Tea scan</string>
+
+    <string name="info_details_infoScreen">The following points should be taken care of to get accurate results -\n \n
+        • The images should be taken with same camera.  \n
+        • The images should be in the vertical orientation.  \n
+        • The camera should be minimum of 12 MP.  \n
+        • The camera should cover only the tea leaves only.  \n
+        • The suggested height of camera from sheet should be between 36 to 40 inches.  \n
+        • Don\'t zoom white capturing the images.  \n
+        • Keep the side margin of approx 2cms while placing leaves on white background (leaf should not touch boundaries).  \n
+        • Capture in proper daylight, not in sunlight (will create shadow).  \n
+        • Use white chart paper or white banner.  \n
+        • There should be between 10 to 35 bunches in an image.  \n
+        • Total number of bunches to test should be between 130 to 150.  \n
+        • Maintain 2 inches distance between the bunches.
+    </string>
+
+    <string name="please_upload_image">Please upload image</string>
+    <string name="you_uploaded_a_wrong_image_please_upload_the_correct_image">You uploaded a wrong image. Please upload the correct image</string>
+    <string name="OnOff_flashlight">On/Off flashlight</string>
+    <string name="OnOff_QR_decoding">On/Off QR decoding</string>
+
+    <string name="flc_percentage">FLC percentage</string>
+    <string name="one_bud">One bud :</string>
+    <string name="one_leaf">One leaf :</string>
+    <string name="two_leaves">Two leaf :</string>
+    <string name="three_leaves">Three leaf :</string>
+    <string name="two_leaves_bud">Two leaf bud  :</string>
+    <string name="three_leaves_bud">Three leaf bud  :</string>
+    <string name="one_banjhi">One banjhi  :</string>
+    <string name="two_leaves_banjhi">Two leaf banjhi  :</string>
+    <string name="three_leaves_banjhi">Three leaf banjhi  :</string>
+    <string name="one_leaf_bud">one leaf bud</string>
+
+
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="custom">Custom</string>
+    <string name="all_warehouse">All WareHouse</string>
+    <string name="scan">Scan</string>
+    <string name="qualix_ware">Qualix Ware</string>
+    <string name="warehouse_id">Warehouse ID</string>
+    <string name="invoice_number">Invoice number</string>
+    <string name="truck_number">Truck Number</string>
+    <string name="crop_variety">Crop variety</string>
+    <string name="delivery_date">Delivery Date</string>
+    <string name="request_date">Request Date</string>
+    <string name="scan_history">Scan History</string>
+    <string name="payment_history">Payment History</string>
+    <string name="notification">notification</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="setting">Setting</string>
+    <string name="language">Language</string>
+    <string name="lowest_flc">Lowest FLC</string>
+    <string name="highest_flc">Highest FLC</string>
+    <string name="flc_count">Flc Count</string>
+    <string name="no_of_scans">No Of Scans</string>
+    <string name="error_login">Error login</string>
+    <string name="error_login_text">Error to login</string>
+    <string name="payment">Payment </string>
+    <string name="weight">Weight</string>
+    <string name="amount">Amount</string>
+    <string name="payment_status">Payment Status</string>
+    <string name="crop_calender">Crop calender</string>
+    <string name="farmer_field">Farmer Field</string>
+    <string name="scan_detail">Scan Detail</string>
+    <string name="internet_issue">Internet issue</string>
+    <string name="today">Today</string>
+    <string name="total">TOTAL</string>
+    <string name="scans_done">Scans Done</string>
+    <string name="monthly_sales">Monthly Sales</string>
+    <string name="quality_score">Quality Score</string>
+    <string name="swipe_right">swipe right</string>
+    <string name="performance">Performance</string>
+    <string name="today_s_sale">Today\'s Sale</string>
+    <string name="weekly_sales">Weekly Sales</string>
+    <string name="farmer_id">Farmer ID</string>
+    <string name="view_all">View all</string>
+    <string name="accept_rate">accept rate</string>
+    <string name="logout_text">Are you sure, want to logout</string>
+    <string name="reference_id">Reference ID</string>
+    <string name="total_count">Total Count</string>
+    <string name="commodity_name">Commodity name</string>
+    <string name="unit">Unit</string>
+    <string name="fill_all_fields">fill all fields</string>
+    <string name="not_able_to_get_crops">Not able to get Crops</string>
+    <string name="not_able_to_get_crops_variety">Not able to get Crops variety</string>
+    <string name="batch_Id">Batch Id</string>
+    <string name="crop_name">Crop Name</string>
+    <string name="crop_type">Crop Type</string>
+    <string name="analysis_name">Analysis Name</string>
+    <string name="value">Value</string>
+    <string name="information">Information</string>
+    <string name="update">Update</string>
+    <string name="scan_done_detail">Scan  Detail</string>
+    <string name="add_all_fields">Add all fields</string>
+    <string name="token_expire">Token expire</string>
+    <string name="user_code">User Code</string>
+    <string name="contact_no">Contact no.</string>
+    <string name="email">Email</string>
+    <string name="company_name">Company Name</string>
+    <string name="user_status">User Status</string>
+    <string name="role">Role</string>
+    <!--    <item>No Garden </item>-->
+    <!--    <item>No Division </item>-->
+
+    <string-array name="array_garden">
+        <item>No Garden</item>
+    </string-array>
+
+    <string-array name="array_division">
+        <item>No Division</item>
+    </string-array>
+
+    <string-array name="array_section">
+        <item>No Section</item>
+    </string-array>
+
+    <string-array name="array_weight_type">
+        <item>Kg</item>
+    </string-array>
+
+    <string-array name="array_area_type">
+        <item>Acre</item>
+        <item>Hectare</item>
+    </string-array>
+
+    <string-array name="array_company">
+        <item>Company 1</item>
+        <item>Company 2</item>
+        <item>Company 3</item>
+    </string-array>
+    <string-array name="array_app">
+        <item>Tea</item>
+        <item>Specx</item>
+    </string-array>
+    <string-array name="array_filter">
+        <item>All</item>
+        <item>Monthly</item>
+        <item>Weekly</item>
+
+    </string-array>
+    <string-array name="array_language">
+        <item>English</item>
+        <item>हिंदी</item>
+    </string-array>
+
+</resources><!--<item>Today</item>-->

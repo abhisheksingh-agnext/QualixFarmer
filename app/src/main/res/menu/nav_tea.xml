@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_quality_ana"
+        android:enabled="true"
+        android:icon="@drawable/ic_quality"
+        android:title="@string/quality_analysis"
+        android:iconTint="@color/colorWhite"
+        app:showAsAction="ifRoom"
+
+        />
+    <item
+        android:id="@+id/action_add_division"
+        android:enabled="true"
+        android:title="Add Division"
+        android:icon="@drawable/ic_farm"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_add_section"
+        android:enabled="true"
+        android:title="Add Section"
+        android:icon="@drawable/ic_farm"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_scan_done"
+        android:enabled="true"
+        android:title="@string/scan_done_detail"
+        android:icon="@drawable/ic_tea"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_field"
+        android:enabled="true"
+        android:title="@string/farm"
+        android:icon="@drawable/ic_farm"
+        app:showAsAction="ifRoom" />
+
+
+
+    <item
+        android:id="@+id/action_tea"
+        android:enabled="true"
+        android:title="@string/tea_scan"
+        android:icon="@drawable/ic_tea"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_crop_calendar"
+        android:enabled="true"
+        android:title="@string/crop_calendar"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_date"
+        android:iconTint="@color/colorWhite"/>
+<!--    <item-->
+<!--        android:id="@+id/action_scan_history"-->
+<!--        android:enabled="true"-->
+<!--        android:title="@string/scan_history"-->
+<!--        app:showAsAction="ifRoom"-->
+<!--        android:icon="@drawable/ic_history"-->
+<!--        android:iconTint="@color/colorWhite"/>-->
+
+
+    <item
+        android:id="@+id/action_profile"
+        android:enabled="true"
+        android:title="@string/profile"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_profile"
+        android:iconTint="@color/colorWhite"/>
+    <item
+        android:id="@+id/action_setting"
+        android:enabled="true"
+        android:title="@string/setting"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_settings"
+        android:iconTint="@color/colorWhite"/>
+
+    <item
+        android:id="@+id/action_logout"
+        android:enabled="true"
+        android:title="@string/logout"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_logout"
+        android:iconTint="@color/colorWhite"/>
+
+</menu>
