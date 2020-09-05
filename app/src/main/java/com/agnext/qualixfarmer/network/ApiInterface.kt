@@ -121,4 +121,6 @@ interface ApiInterface {
     @GET("api/scan/history?p=0&l=100")
     fun scanHistory(@Header("authorization") authorization: String, @QueryMap options: Map<String, String>): Call<ScanHistoryRes>
 
+    @GET("/api/farmer/commodity")
+    fun farmerCommodity(@Header("authorization") authorization: String,@Path("farmer_id") farmer_id: String): Call<ArrayList<ResCommodity>>
 }

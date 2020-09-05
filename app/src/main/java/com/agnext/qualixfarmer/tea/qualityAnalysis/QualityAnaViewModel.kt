@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.agnext.qualixfarmer.network.Response.AvgData
+import com.agnext.qualixfarmer.network.Response.ResCommodity
 import com.agnext.qualixfarmer.network.Response.ScanData
 import com.agnext.qualixfarmer.network.Response.ScanDetail
 import com.agnext.sensenextmyadmin.ui.auth.login.RefreshInteractor
@@ -21,6 +22,7 @@ class QualityAnaViewModel(
     lateinit var _endDay: String
 
     /**Observable Mutable object*/
+    var errorMsg = "Error"
 
     //1 ScreenState
     private val _qualityAnaState: MutableLiveData<ScreenState<QualityState>> = MutableLiveData()
@@ -37,6 +39,8 @@ class QualityAnaViewModel(
     val avgScanData: LiveData<AvgData>
         get() = _avgScanData
 
+    private val commodityList = ArrayList<ResCommodity>()
+
     private val _scanQualixList: MutableLiveData<ArrayList<ScanData>> = MutableLiveData()
     val scanQualixList: LiveData<ArrayList<ScanData>>
         get() = _scanQualixList
@@ -47,8 +51,11 @@ class QualityAnaViewModel(
         qualityAnaInterceptor.getScansListIn(token, startDay, endDay, this)
     }
 
-    fun getCommodity()
-    {}
+    fun getCommodity(farmerId:String)
+    {
+        _qualityAnaState.value = ScreenState.Loading
+        qualityAnaInterceptor.getCommodity(farmerId,this)
+    }
 
     fun getScanHistory(option: MutableMap<String, String>) {
         qualityAnaInterceptor.getScanHistoryIn(option, this)
@@ -64,11 +71,8 @@ class QualityAnaViewModel(
         qualityAnaInterceptor.getMonthFlcDataIn(this)
     }
 
-    override fun onCommoditySuccess() {
-    }
 
-    override fun onCommodityFailure() {
-    }
+
 
     /**Backward Flow*/
 
@@ -80,6 +84,17 @@ class QualityAnaViewModel(
 
     override fun onNoScansListSuccess() {
         _qualityAnaState.value = ScreenState.Render(QualityState.noScanListSuccess)
+    }
+
+    override fun onCommoditySuccess(response: ArrayList<ResCommodity>) {
+        commodityList.clear()
+        commodityList.addAll(response)
+        _qualityAnaState.value = ScreenState.Render(QualityState.commoditySuccess)
+    }
+
+    override fun onCommodityFailure(msg: String) {
+        errorMsg=msg
+        _qualityAnaState.value = ScreenState.Render(QualityState.commodityFailure)
     }
 
     override fun onScansListFailure() {

@@ -55,16 +55,39 @@ class QualityAnaInterceptor(private val context: Context) {
         })
     }
 
-    fun getCommodity() {
-        val call = apiServiceSCM.getCommodity("Bearer ${Constant.token}")
+    fun getCommodity(farmerId:String,   mCallback: OnQualityAnaFinishedListener) {
+        val call = apiServiceSCM.farmerCommodity("Bearer ${Constant.token}",farmerId)
         call.enqueue(object : Callback<ArrayList<ResCommodity>> {
             override fun onFailure(call: Call<ArrayList<ResCommodity>>, t: Throwable) {
+                mCallback.onCommodityFailure("Error to get Commodity")
             }
 
             override fun onResponse(
                 call: Call<ArrayList<ResCommodity>>,
                 response: Response<ArrayList<ResCommodity>>
             ) {
+                when (response.code()) {
+                    200 -> {
+                        mCallback.onCommoditySuccess(response.body()!!)
+                    }
+                    204 -> {
+                        mCallback.onCommodityFailure("No record found")
+                    }
+                    401 -> {
+                        mCallback.tokenExpire()
+                    }
+                    400 -> {
+                        try {
+                            val jObjError = JSONObject(response.errorBody()!!.string())
+                            mCallback.onCommodityFailure(jObjError.getString("error-message"))
+                        } catch (e: Exception) {
+                            mCallback.onCommodityFailure(e.message.toString())
+                        }
+                    }
+                    else -> {
+                        mCallback.onCommodityFailure("Error to get Commodity")
+                    }
+                }
             }
         })
 
@@ -147,8 +170,8 @@ class QualityAnaInterceptor(private val context: Context) {
 
     interface OnQualityAnaFinishedListener {
         //Commodity
-        fun onCommoditySuccess()
-        fun onCommodityFailure()
+        fun onCommoditySuccess(body: ArrayList<ResCommodity>)
+        fun onCommodityFailure(msg:String)
 
         //Scan list
         fun onScansListSuccess(scanList: ArrayList<ScanDetail>)

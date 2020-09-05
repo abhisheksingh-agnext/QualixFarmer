@@ -124,6 +124,8 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
         else
             AlertUtil.showToast(this, getString(R.string.internet_issue))
 
+        viewModel.getCommodity("134")
+
     }
 
     private fun initPager() {
@@ -184,10 +186,15 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
             }
             QualityState.monthFlcDataFailure -> {
                 AlertUtil.showToast(this, "Error to get data")
-
             }
 
+            QualityState.commodityFailure->{
+                AlertUtil.showToast(this,viewModel.errorMsg!!)
+            }
 
+            QualityState.commoditySuccess->{
+
+            }
         }
     }
 
