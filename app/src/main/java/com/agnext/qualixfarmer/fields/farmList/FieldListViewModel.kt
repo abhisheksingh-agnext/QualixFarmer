@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.agnext.qualixfarmer.network.Response.FarmRes
 import com.agnext.qualixfarmer.network.Response.ResAllFarms
 import com.agnext.sensenextmyadmin.utils.extensions.ScreenState
 import retrofit2.Response
@@ -16,14 +17,15 @@ class FieldListViewModel(val fieldInteractor: FieldInteractor) :ViewModel() ,All
     val fieldListState: LiveData<ScreenState<FieldListState>>
         get() = _fieldListState
 
-    private  val _fieldList:MutableLiveData<ArrayList<ResAllFarms>> = MutableLiveData()
-    val fieldList:LiveData<ArrayList<ResAllFarms>> get()= _fieldList
+    //ResAllFarms
+    private  val _fieldList:MutableLiveData<ArrayList<FarmRes>> = MutableLiveData()
+    val fieldList:LiveData<ArrayList<FarmRes>> get()= _fieldList
 
 
     //Forward Flow
-    fun getAllFarmVM(token:String)
+    fun getAllFarmVM(token:String,farmerId:String)
     {
-        fieldInteractor.getAllFarm(token,this)
+        fieldInteractor.getAllFarm(token,farmerId,this)
     }
 
 
@@ -31,7 +33,7 @@ class FieldListViewModel(val fieldInteractor: FieldInteractor) :ViewModel() ,All
     {fieldInteractor.deleteFarm(token,farmID,this)}
 
      //Backward Flow
-    override fun fieldListSuccess(responseData: Response<ArrayList<ResAllFarms>>) {
+    override fun fieldListSuccess(responseData: Response<ArrayList<FarmRes>>) {
          if(responseData.body()!=null){
          if(responseData.body()!!.size>0) {
              _fieldList.value=responseData.body()!!

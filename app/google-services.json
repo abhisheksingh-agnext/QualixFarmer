@@ -1,34 +1,71 @@
 {
   "project_info": {
-    "project_number": "1063827278621",
-    "firebase_url": "https://qualix-seller-app.firebaseio.com",
-    "project_id": "qualix-seller-app",
-    "storage_bucket": "qualix-seller-app.appspot.com"
+    "project_number": "133128366692",
+    "firebase_url": "https://qualixapp-bd435.firebaseio.com",
+    "project_id": "qualixapp-bd435",
+    "storage_bucket": "qualixapp-bd435.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1063827278621:android:fcd82bfb01add2c5946ff4",
+        "mobilesdk_app_id": "1:133128366692:android:1e65f774ee3e05f4978d71",
         "android_client_info": {
           "package_name": "com.agnext.qualixfarmer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1063827278621-rhjpr37q2nnjr2ssk2p4jlmo7la95ssp.apps.googleusercontent.com",
+          "client_id": "133128366692-a8ksjevs0o0hvfdpp2k9rj54jt0c6t9o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.agnext.qualixfarmer",
+            "certificate_hash": "041c7122a919e23b29d123540e45f168d160a54e"
+          }
+        },
+        {
+          "client_id": "133128366692-he2ipkn1l09dligfu2f7quqkbftnidv3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBLhXgZjNqFacfJeXkzur5lP7cUuR2tmXE"
+          "current_key": "AIzaSyAtZBV7_U90IN3jRGNV-mTqEFSwOVrHIcA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1063827278621-rhjpr37q2nnjr2ssk2p4jlmo7la95ssp.apps.googleusercontent.com",
+              "client_id": "133128366692-he2ipkn1l09dligfu2f7quqkbftnidv3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133128366692:android:e4e5174df157a6ba978d71",
+        "android_client_info": {
+          "package_name": "com.qualix.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133128366692-he2ipkn1l09dligfu2f7quqkbftnidv3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtZBV7_U90IN3jRGNV-mTqEFSwOVrHIcA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133128366692-he2ipkn1l09dligfu2f7quqkbftnidv3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

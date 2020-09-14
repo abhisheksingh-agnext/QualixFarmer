@@ -18,8 +18,17 @@ class SessionClass(activity: Activity) {
     private val PREF = "PREF"
     private val NAV_TYPE = "NAV_TYPE"
     private val THEME_TYPE = "THEME_TYPE"
+    private val FCM_TOKEN = "FCM_TOKEN"
 
 
+    fun setFcmToken(token: String) {
+        editor.putString(FCM_TOKEN, token)
+        editor.commit()
+    }
+
+    fun getFcmToken(): String {
+        return preferences.getString(FCM_TOKEN, "")!!
+    }
     /*-----------------------------  THEME TYPE*/
     fun setTheme(theme: String) {
         editor.putString(THEME_TYPE, theme)
@@ -118,4 +127,57 @@ class SessionClass(activity: Activity) {
         return preferences.getString("appName", "")!!
     }
 
+    fun setVMSLogged(
+        Logged: Boolean,
+        id: String,
+        name: String,
+        email: String,
+        contactNumber: String,
+        role: String,
+        statusId: String,
+        status: String,
+        token: String,
+        farmerCode: String
+    ) {
+        editor.putBoolean("Logged", Logged)
+        editor.putString("id", id)
+        editor.putString("name", name)
+        editor.putString("email", email)
+        editor.putString("contactNumber", contactNumber)
+        editor.putString("role", role)
+        editor.putString("statusId", statusId)
+        editor.putString("status", status)
+        editor.putString("token", "Bearer "+token)
+        editor.putString("tokenPlain", token)
+        editor.putString("farmerCode", farmerCode)
+
+        editor.commit()
+    }
+    fun getVMSToken(): String {
+        return preferences.getString("token", "")!!
+    }
+    fun getVMSTokenWithoutBearer(): String {
+        return preferences.getString("tokenPlain", "")!!
+    }
+    fun getVMSId():String{
+        return preferences.getString("id", "")!!
+    }
+    fun getVMSName():String{
+        return preferences.getString("name", "")!!
+    }
+    fun getVMSEmail(): String {
+        return preferences.getString("email", "")!!
+    }
+    fun getVMSContactNumber(): String {
+        return preferences.getString("contactNumber", "")!!
+    }
+    fun getVMSRole():String{
+        return preferences.getString("role", "")!!
+    }
+    fun getVMSStatus():String{
+        return preferences.getString("status", "")!!
+    }
+    fun getVMSFarmerCode():String{
+        return preferences.getString("farmerCode", "")!!
+    }
 }

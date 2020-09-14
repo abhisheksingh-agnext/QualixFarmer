@@ -11,6 +11,7 @@ import com.agnext.qualixfarmer.base.Constant.Companion.REQUEST_BOUNDARY_GEO_FENC
 import com.agnext.qualixfarmer.base.Constant.Companion.REQUEST_BOUNDARY_GEO_PLOTING
 import com.agnext.qualixfarmer.fields.FieldPlotting
 import com.agnext.qualixfarmer.fields.farmList.FieldData
+import com.agnext.qualixfarmer.network.Response.FarmRes
 import com.agnext.qualixfarmer.network.Response.ResAllFarms
 import com.agnext.qualixfarmer.utils.AlertUtil
 import com.agnext.qualixfarmer.utils.utils
@@ -39,7 +40,7 @@ class FarmDetailActivity : BaseActivity(), View.OnClickListener, OnMapReadyCallb
     var field_longitude = 0.0
 
     private lateinit var viewModel: FarmDetailViewModel
-    private lateinit var testObject: ResAllFarms
+    private lateinit var testObject: FarmRes
     var latlngList = ArrayList<LatLng>()
 
 
@@ -69,7 +70,7 @@ class FarmDetailActivity : BaseActivity(), View.OnClickListener, OnMapReadyCallb
         val selectObject = intent.getStringExtra("jsonObject")
         val gson = Gson()
         if (selectObject != null) {
-            val type = object : TypeToken<ResAllFarms>() {}.type
+            val type = object : TypeToken<FarmRes>() {}.type
             testObject = gson.fromJson(selectObject, type)
             // setData(testObject)
         }
@@ -86,42 +87,39 @@ class FarmDetailActivity : BaseActivity(), View.OnClickListener, OnMapReadyCallb
     }
 
     /**Set Data in View*/
-    private fun setData(testObject: ResAllFarms) {
+    private fun setData(testObject: FarmRes) {
         //1
-        tvFarmName.text = testObject.farmId
-        tvFarmerCode.text = "Field Id : ${testObject.farmerId}"
-        tvFarmerName.text = testObject.farmerName
+        tvFarmName.text = testObject.plot_name ?: "Farm"
+        tvFarmerCode.text = "Field code : ${testObject.plot_id}"
+        tvFarmerName.text = "Farmer name : ${testObject.farmer_name}"
         //2
-        tvCrop.text = testObject.cropName
-        tvCropVariety.text = testObject.cropVerityName
+        tvCrop.text = testObject.crop_id ?: "No Data"
+        tvCropVariety.text = testObject.crop_verity_id ?: "No Data"
 
         //3
         tvAddress.text = testObject.address
         tvDistrict.text = testObject.district
         tvArea.text = testObject.area
 
-        if(testObject.farmIndics!=null)
-            if(testObject.farmIndics!!.size>0)
-        {
-            btAddBoundries.visibility=View.GONE
-            cdFarmMap.visibility=View.VISIBLE
-            if(testObject.farmIndics!![0].latitude!=null)
+        if(testObject.coordinates!=null)
+            if(testObject.coordinates!!.size>0)
             {
-            for(i in 0 until testObject.farmIndics!!.size)
+                btAddBoundries.visibility=View.GONE
+                cdFarmMap.visibility=View.VISIBLE
+                if(testObject.coordinates!![0].latitude!=null)
+                {
+                    for(i in 0 until testObject.coordinates!!.size)
+                    {
+                        latlngList.add(LatLng(testObject.coordinates!![i].latitude!!.toDouble(), testObject.coordinates!![i].longitude!!.toDouble()))
+                    }
+                }
+
+            }
+            else
             {
-                latlngList.add(LatLng(testObject.farmIndics!![i].latitude!!.toDouble(), testObject.farmIndics!![i].longitude!!.toDouble()))
+                btAddBoundries.visibility=View.GONE
+                cdFarmMap.visibility=View.GONE
             }
-//            drawField()
-            }
-
-        }
-        else
-        {
-            btAddBoundries.visibility=View.GONE
-            cdFarmMap.visibility=View.GONE
-        }
-
-
     }
 
 

@@ -34,9 +34,7 @@
         android:enabled="true"
         android:title="@string/farm"
         android:icon="@drawable/ic_farm"
-        app:showAsAction="ifRoom" />
-
-
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/action_tea"

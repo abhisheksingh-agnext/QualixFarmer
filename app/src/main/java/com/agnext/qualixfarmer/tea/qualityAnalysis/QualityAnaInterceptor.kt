@@ -31,7 +31,10 @@ class QualityAnaInterceptor(private val context: Context) {
             ) {
                 when (response.code()) {
                     200 -> {
-                        mCallback.scanHistorySuccess(response.body()!!.scan_history_data)
+                        if (response.body()!!.scan_history_data!!.size > 0)
+                            mCallback.scanHistorySuccess(response.body()!!.scan_history_data)
+                        else
+                            mCallback.onNoScansListSuccess()
                     }
                     204 -> {
                         mCallback.scanHistoryFailure("No record found")
@@ -55,8 +58,8 @@ class QualityAnaInterceptor(private val context: Context) {
         })
     }
 
-    fun getCommodity(farmerId:String,   mCallback: OnQualityAnaFinishedListener) {
-        val call = apiServiceSCM.farmerCommodity("Bearer ${Constant.token}",farmerId)
+    fun     getCommodity(farmerId: String, mCallback: OnQualityAnaFinishedListener) {
+        val call = apiServiceSCM.farmerCommodity("Bearer ${Constant.token}", farmerId)
         call.enqueue(object : Callback<ArrayList<ResCommodity>> {
             override fun onFailure(call: Call<ArrayList<ResCommodity>>, t: Throwable) {
                 mCallback.onCommodityFailure("Error to get Commodity")
@@ -171,7 +174,7 @@ class QualityAnaInterceptor(private val context: Context) {
     interface OnQualityAnaFinishedListener {
         //Commodity
         fun onCommoditySuccess(body: ArrayList<ResCommodity>)
-        fun onCommodityFailure(msg:String)
+        fun onCommodityFailure(msg: String)
 
         //Scan list
         fun onScansListSuccess(scanList: ArrayList<ScanDetail>)

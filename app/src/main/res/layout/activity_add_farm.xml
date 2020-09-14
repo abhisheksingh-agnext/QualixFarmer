@@ -185,18 +185,7 @@
 
                         </com.google.android.material.textfield.TextInputLayout>
 
-<!--                        <TextView-->
-<!--                            android:id="@+id/tvCropName"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:singleLine="true"-->
-<!--                            android:layout_marginLeft="15dp"-->
-<!--                            android:layout_marginRight="15dp"-->
-<!--                            android:padding="10dp"-->
-<!--                            android:textColor="?textDark"-->
-<!--                            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
-<!--                            fontPath="fonts/Poppins-Regular.ttf"-->
-<!--                            tools:ignore="MissingPrefix" />-->
+
                                             <Spinner
                                                 android:id="@+id/spinnerCrop"
                                                 android:layout_width="match_parent"
@@ -233,18 +222,6 @@
 
                         </com.google.android.material.textfield.TextInputLayout>
 
-<!--                        <TextView-->
-<!--                            android:id="@+id/tvCropVariety"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:singleLine="true"-->
-<!--                            android:layout_marginLeft="15dp"-->
-<!--                            android:layout_marginRight="15dp"-->
-<!--                            android:padding="10dp"-->
-<!--                            android:textColor="?textDark"-->
-<!--                            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
-<!--                            fontPath="fonts/Poppins-Regular.ttf"-->
-<!--                            tools:ignore="MissingPrefix" />-->
                         <Spinner
                             android:id="@+id/spinnerCropVariety"
                             android:layout_width="match_parent"

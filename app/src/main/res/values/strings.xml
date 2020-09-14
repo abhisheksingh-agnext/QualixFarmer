@@ -237,4 +237,15 @@
         <item>हिंदी</item>
     </string-array>
 
+    <string-array name="array_crop">
+        <item>Rice</item>
+        <item>wheat</item>
+    </string-array>
+
+    <string-array name="array_crop_var">
+        <item>Variety 1</item>
+        <item>Variety 2</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+
 </resources><!--<item>Today</item>-->

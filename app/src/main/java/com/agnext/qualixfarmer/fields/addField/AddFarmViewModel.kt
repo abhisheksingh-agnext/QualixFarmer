@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.agnext.qualixfarmer.network.Response.ResAddFarm
 import com.agnext.qualixfarmer.network.Response.ResCropVariety
 import com.agnext.qualixfarmer.network.Response.ResCrops
+import com.agnext.qualixfarmer.network.Response.ResCropsVariety
 import com.agnext.sensenextmyadmin.utils.extensions.ScreenState
 import retrofit2.Response
 
@@ -19,13 +20,13 @@ class AddFarmViewModel(val addFarmInteractor: AddFarmInteractor) : ViewModel() ,
         get() = _addFarmState
 
     //Crop List
-    private val _getCropList: MutableLiveData<ResCrops> = MutableLiveData()
-    val getCropList: LiveData<ResCrops>
+    private val _getCropList: MutableLiveData<ArrayList<ResCrops>> = MutableLiveData()
+    val getCropList: LiveData<ArrayList<ResCrops>>
         get() = _getCropList
 
     //Crop variety
-    private val _getCropVarietyList: MutableLiveData<ResCropVariety> = MutableLiveData()
-    val getCropVarietyList: LiveData<ResCropVariety>
+    private val _getCropVarietyList: MutableLiveData<ArrayList<ResCropsVariety>> = MutableLiveData()
+    val getCropVarietyList: LiveData<ArrayList<ResCropsVariety>>
         get() = _getCropVarietyList
 
 
@@ -50,7 +51,7 @@ class AddFarmViewModel(val addFarmInteractor: AddFarmInteractor) : ViewModel() ,
 
     /**BackWard Flow */
 
-    override fun getCropSuccessCallback( response: Response<ResCrops>) {
+    override fun getCropSuccessCallback(response: Response<ArrayList<ResCrops>>) {
         _getCropList.value=response.body()
         _addFarmState.value= ScreenState.Render(AddFarmState.GetCorpSuccess)
 
@@ -61,7 +62,7 @@ class AddFarmViewModel(val addFarmInteractor: AddFarmInteractor) : ViewModel() ,
 
     }
 
-    override fun getCropVarietySuccess(response: Response<ResCropVariety>) {
+    override fun getCropVarietySuccess(response: Response<ArrayList<ResCropsVariety>>) {
         _getCropVarietyList.value=response.body()
         _addFarmState.value= ScreenState.Render(AddFarmState.GetCropVarietySuccess)
     }

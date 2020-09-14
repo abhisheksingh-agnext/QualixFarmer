@@ -39,7 +39,7 @@ class QualityAnaViewModel(
     val avgScanData: LiveData<AvgData>
         get() = _avgScanData
 
-    private val commodityList = ArrayList<ResCommodity>()
+    val commodityList = ArrayList<ResCommodity>()
 
     private val _scanQualixList: MutableLiveData<ArrayList<ScanData>> = MutableLiveData()
     val scanQualixList: LiveData<ArrayList<ScanData>>
@@ -136,6 +136,8 @@ class QualityAnaViewModel(
     }
 
     override fun scanHistoryFailure(massage: String) {
+        _qualityAnaState.value = ScreenState.Render(QualityState.scansListFailure)
+
     }
 
     override fun tokenExpire() {

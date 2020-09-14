@@ -45,18 +45,19 @@ class ProfileActivity : BaseActivity(), View.OnClickListener {
         //Register the click listener
         cvImageView_FD.setOnClickListener(this)
         tvEditFarmer_FD.setOnClickListener(this)
-        var user: User = SessionClass(this@ProfileActivity).getUser()
-        if (user != null) {
-            etUSerId.text=user.code.toString()
-            etName.setText(user.name)
-            etLocation.setText(user.baseLocation.toString())
-            etContactNumber.setText(user.mobile)
+//        var user: User = SessionClass(this@ProfileActivity).getUser()
+//        if (user != null) {
+            etUSerId.text=SessionClass(this).getVMSId()
+            etName.setText(SessionClass(this).getVMSName())
+           // etLocation.setText()
+            etContactNumber.setText(SessionClass(this).getVMSContactNumber())
             // etAdhar.setText(user.mobile)
-            etEmail.setText(user.email)
-            etCompanyName.setText(user.companyName)
-            etUserStatus.setText(user.status)
-            etRole.setText(user.roles?.get(0)?.name)
-        }
+            etEmail.setText(SessionClass(this).getVMSEmail())
+          //  etCompanyName.setText(user.companyName)
+
+            etUserStatus.setText(SessionClass(this).getVMSStatus())
+            etRole.setText(SessionClass(this).getVMSRole())
+//        }
 
         viewModel.getProfile()
 

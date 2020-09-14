@@ -73,7 +73,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/username"
-                    android:text="user1"
+                    android:text="admin@agnext.in"
                     android:singleLine="true"
                     android:inputType="textEmailAddress"/>
 
@@ -95,7 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
-                    android:text="123456"
+                    android:text="admin"
                     android:singleLine="true"
                     android:inputType="textPassword"
                   />

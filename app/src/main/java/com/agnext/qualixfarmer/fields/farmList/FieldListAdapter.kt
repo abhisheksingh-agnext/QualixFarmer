@@ -9,13 +9,14 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.agnext.qualixfarmer.R
+import com.agnext.qualixfarmer.network.Response.FarmRes
 import com.agnext.qualixfarmer.network.Response.ResAllFarms
 import com.daimajia.swipe.SwipeLayout
 import kotlinx.android.synthetic.main.item_farm.view.*
 
 class FieldListAdapter(
     val context:Context, val
-    fieldList: ArrayList<ResAllFarms>,
+    fieldList: ArrayList<FarmRes>,
     val mCallback: FarmListCallback
 ) : RecyclerView.Adapter<FieldListAdapter.ViewHolder>() {
 
@@ -43,9 +44,9 @@ class FieldListAdapter(
     }
 
     override fun onBindViewHolder(holder: FieldListAdapter.ViewHolder, position: Int) {
-        holder.tvFarmName.text = " : ${fieldList[position].farmId}, ${fieldList[position].address}"
-        holder.tvCrop.text = " : ${fieldList[position].cropName}"
-        holder.tvCropType.text = " : ${fieldList[position].cropVerityName}"
+        holder.tvFarmName.text = " : ${fieldList[position].plot_name}"
+        holder.tvCrop.text =" : ${fieldList[position].area}"
+        holder.tvCropType.text =" : ${fieldList[position].address}"
 
         holder.item.setOnClickListener{
             mCallback.onClickItem(position)

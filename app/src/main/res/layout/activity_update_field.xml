@@ -219,6 +219,7 @@
                             android:paddingLeft="10dp"
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
+                            android:entries="@array/array_crop"
                             />
 
                     </LinearLayout>
@@ -266,108 +267,11 @@
                             android:layout_weight="85"
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
+                            android:entries="@array/array_crop_var"
                             />
                     </LinearLayout>
 
                 </LinearLayout>
-
-                <!--                <Space-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="5dp" />-->
-
-                <!--                <LinearLayout-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:orientation="horizontal"-->
-                <!--                    android:weightSum="2">-->
-
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="0dp"-->
-                <!--                        android:layout_height="match_parent"-->
-                <!--                        android:layout_weight="1"-->
-                <!--                        android:orientation="vertical">-->
-
-                <!--                        <com.google.android.material.textfield.TextInputLayout-->
-                <!--                            android:layout_width="match_parent"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:layout_marginLeft="15dp"-->
-                <!--                            android:layout_marginRight="15dp"-->
-                <!--                            app:boxBackgroundColor="@color/background_grey">-->
-
-                <!--                            <TextView-->
-                <!--                                android:layout_width="match_parent"-->
-                <!--                                android:layout_height="wrap_content"-->
-                <!--                                android:singleLine="true"-->
-                <!--                                android:text="@string/start_date"-->
-                <!--                                android:textColor="?textLight"-->
-                <!--                                android:paddingLeft="10dp" />-->
-
-                <!--                        </com.google.android.material.textfield.TextInputLayout>-->
-
-
-                <!--                        <TextView-->
-                <!--                            android:id="@+id/tvStartDate"-->
-                <!--                            android:layout_width="match_parent"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:singleLine="true"-->
-                <!--                            android:layout_marginLeft="15dp"-->
-                <!--                            android:layout_marginRight="15dp"-->
-                <!--                            android:padding="10dp"-->
-                <!--                            android:textColor="?textDark"-->
-                <!--                            android:drawableRight="@drawable/ic_date"-->
-                <!--                            android:drawablePadding="20dp"-->
-                <!--                            android:drawableTint="?textDark"-->
-                <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
-                <!--                            fontPath="fonts/Poppins-Regular.ttf"-->
-                <!--                            tools:ignore="MissingPrefix" />-->
-
-
-                <!--                    </LinearLayout>-->
-
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="0dp"-->
-                <!--                        android:layout_height="match_parent"-->
-                <!--                        android:layout_weight="1"-->
-                <!--                        android:orientation="vertical">-->
-
-                <!--                        <com.google.android.material.textfield.TextInputLayout-->
-                <!--                            android:layout_width="match_parent"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:layout_marginLeft="15dp"-->
-                <!--                            android:layout_marginRight="15dp"-->
-                <!--                            app:boxBackgroundColor="@color/background_grey">-->
-
-                <!--                            <TextView-->
-                <!--                                android:layout_width="match_parent"-->
-                <!--                                android:layout_height="wrap_content"-->
-                <!--                                android:singleLine="true"-->
-                <!--                                android:text="@string/end_date"-->
-                <!--                                android:textColor="?textLight"-->
-                <!--                                android:paddingLeft="10dp" />-->
-
-                <!--                        </com.google.android.material.textfield.TextInputLayout>-->
-
-                <!--                        <TextView-->
-                <!--                            android:id="@+id/tvEndDate"-->
-                <!--                            android:layout_width="match_parent"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:singleLine="true"-->
-                <!--                            android:layout_marginLeft="15dp"-->
-                <!--                            android:layout_marginRight="15dp"-->
-                <!--                            android:padding="10dp"-->
-                <!--                            android:drawableRight="@drawable/ic_date"-->
-                <!--                            android:drawablePadding="20dp"-->
-                <!--                            android:drawableTint="?textDark"-->
-                <!--                            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
-                <!--                            fontPath="fonts/Poppins-Regular.ttf"-->
-                <!--                            tools:ignore="MissingPrefix"-->
-                <!--                            android:textColor="?textDark"/>-->
-
-
-                <!--                    </LinearLayout>-->
-
-
-                <!--                </LinearLayout>-->
 
 
                 <Space
@@ -526,6 +430,7 @@
                     app:cardElevation="5dp">
 
                     <LinearLayout
+                        android:id="@+id/lnMap"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="5dp">
@@ -553,7 +458,7 @@
 
 
                 <Button
-                    android:id="@+id/btnAddFarm"
+                    android:id="@+id/btnUpdateFarm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_16sdp"

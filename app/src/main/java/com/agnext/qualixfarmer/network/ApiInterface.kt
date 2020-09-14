@@ -118,9 +118,34 @@ interface ApiInterface {
     @GET("/api/commodity")
     fun getCommodity(@Header("authorization") authorization: String): Call<ArrayList<ResCommodity>>
 
-    @GET("api/scan/history?p=0&l=100")
+    @GET("api/scan/history?p=0&l=100&user_type=farmer")
     fun scanHistory(@Header("authorization") authorization: String, @QueryMap options: Map<String, String>): Call<ScanHistoryRes>
 
     @GET("/api/farmer/commodity")
-    fun farmerCommodity(@Header("authorization") authorization: String,@Path("farmer_id") farmer_id: String): Call<ArrayList<ResCommodity>>
+    fun farmerCommodity(@Header("authorization") authorization: String,@Query("farmer_id") farmer_id: String): Call<ArrayList<ResCommodity>>
+
+
+    /**=================================VMS*/
+    @POST("/api/authenticate")
+    fun vmsLogin(@Body options: HashMap<String, String>): Call<VmsLoginRes>
+
+    @GET("/api/plot")
+    fun getPlots(@Query("farmer_id") farmer_id:String):Call<ArrayList<FarmRes>>
+
+    @POST("/api/plot")
+    fun addPlot(@Body data: HashMap<String, Any>): Call<ResAddFarm>
+
+    @GET("/api/commodity")
+    fun getDcmCommodity(@Header("authorization") authorization: String): Call<ArrayList<ResCrops>>
+
+    @GET("/api/commodity/varieties")
+    fun getDcmCommodityVariety(@Header("authorization") authorization: String,@Query("commodityId") commodityId:String): Call<ArrayList<ResCropsVariety>>
+
+    @PUT("/api/plot/{plot_id}")
+    fun updatePlot(@Path("plot_id") plot_id :String,@Body data: HashMap<String, Any>): Call<FarmRes>
+
+    @DELETE("/api/plot/{plot_id}")
+    fun deletePlot(@Path("plot_id") plot_id :String): Call<ResBasic>
+
+
 }

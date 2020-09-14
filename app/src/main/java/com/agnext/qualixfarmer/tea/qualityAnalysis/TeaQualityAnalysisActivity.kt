@@ -7,6 +7,7 @@ import android.os.Handler
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
@@ -38,6 +39,7 @@ import kotlinx.android.synthetic.main.activity_tea_quality_analysis.*
 import kotlinx.android.synthetic.main.custom_toolbar.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
     NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener,
@@ -58,25 +60,27 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
     lateinit var tvApply: TextView
     lateinit var tvCancel: TextView
     lateinit var alertDialog: AlertDialog
+    private var commodityPos = 0
+    val commodities = ArrayList<String>()
+    var farmerId: String = ""
+    var farmerCode: String = ""
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+       override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tea_quality_analysis)
         token = "Bearer " + SessionClass(this).getUserToken()
-        //
         viewModel = ViewModelProvider(
             this,
             QAViewModelFactory(QualityAnaInterceptor(this), RefreshInteractor(this))
         )[QualityAnaViewModel::class.java]
         viewModel.qualityAnaState.observe(::getLifecycle, ::updateUI)
+        filterData["farmer_id"] = SessionClass(this).getVMSId()
+//        filterData["farmer_id"] = "134"
 
         initView()
         rvScanHistory.isFocusable = false
         getFirebaseToken(this)
-
-
     }
-
 
     /**Init View*/
     fun initView() {
@@ -84,12 +88,10 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
         actionBar = supportActionBar!!
         actionBar.title = "Qualix Farmer"
 
-
         val toggle = ActionBarDrawerToggle(this, drawer_layout, toolbar, 0, 0)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-        hideItem()
 
         navigation.setNavigationItemSelectedListener(this)
         spFilter.onItemSelectedListener = this
@@ -97,11 +99,12 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
         llProfile.setOnClickListener(this)
         // viewAllPayment.setOnClickListener(this)
         ivQrImage.setOnClickListener(this)
-        ivQrImage.setImageBitmap(AlertUtil.generateQR("123456", this))
+        farmerId = SessionClass(this).getVMSId()
+        farmerCode=SessionClass(this).getVMSFarmerCode()
+        ivQrImage.setImageBitmap(AlertUtil.generateQR(farmerId, this))
 
-        tvUserName.text = SessionClass(this).getUserName()
-        tvUserId.text = "${SessionClass(this).getUserId()}"
-
+        tvUserName.text = SessionClass(this).getVMSName()
+        tvUserId.text = farmerId
         ivFilter.setOnClickListener(this)
         var calendar = Calendar.getInstance()
         val date = calendar.time
@@ -110,7 +113,6 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
         currentDay = dateFormat.format(date)
         weekDay = getCalculatedDate(currentDay, "MM/dd/yyyy", -7)
         monthDay = getCalculatedDate(currentDay, "MM/dd/yyyy", -30)
-
 
 //        //Api for Scan list
 //        if (hasConnection(this))
@@ -123,8 +125,8 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
             viewModel.getAvgScanVM(token)
         else
             AlertUtil.showToast(this, getString(R.string.internet_issue))
-
-        viewModel.getCommodity("134")
+        progress.visibility = View.VISIBLE
+        viewModel.getCommodity(SessionClass(this).getVMSToken())
 
     }
 
@@ -142,12 +144,12 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
     }
 
     private fun processLoginState(renderState: QualityState) {
-        progress.visibility = View.GONE
         //   viewAllPayment.visibility = View.VISIBLE
 
         when (renderState) {
             QualityState.scansListSuccess -> {
                 //setting the recycleView
+                progress.visibility = View.GONE
                 tvNoRecord.visibility = View.GONE
                 //   viewAllPayment.visibility = View.VISIBLE
                 rvScanHistory.visibility = View.VISIBLE
@@ -158,12 +160,14 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
                 rvScanHistory.adapter = qualityAnalysisAdapter
             }
             QualityState.noScanListSuccess -> {
+                progress.visibility = View.GONE
                 tvNoRecord.visibility = View.VISIBLE
 //                viewAllPayment.visibility = View.GONE
                 rvScanHistory.visibility = View.GONE
 
             }
             QualityState.scansListFailure -> {
+                progress.visibility = View.GONE
                 AlertUtil.showToast(this, "Error to get data")
             }
 
@@ -185,31 +189,31 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
                 //  graph()
             }
             QualityState.monthFlcDataFailure -> {
-                AlertUtil.showToast(this, "Error to get data")
+                //   AlertUtil.showToast(this, "Error to get data")
             }
 
-            QualityState.commodityFailure->{
-                AlertUtil.showToast(this,viewModel.errorMsg!!)
+            QualityState.commodityFailure -> {
+                AlertUtil.showToast(this, viewModel.errorMsg)
             }
 
-            QualityState.commoditySuccess->{
+            QualityState.commoditySuccess -> {
 
             }
         }
     }
 
     /**Hide Navigation Item*/
-    private fun hideItem() {
-        val navMenu = navigation.menu
-        if (SessionClass(this).getBaseUrl() == Constant.BaseURlTea) {
-            navMenu.findItem(R.id.action_field).isVisible = true
-            navMenu.findItem(R.id.action_crop_calendar).isVisible = true
-        } else {
-            navMenu.findItem(R.id.action_field).isVisible = false
-            navMenu.findItem(R.id.action_crop_calendar).isVisible = false
-
-        }
-    }
+//    private fun hideItem() {
+//        val navMenu = navigation.menu
+//        if (SessionClass(this).getBaseUrl() == Constant.BaseURlTea) {
+//            navMenu.findItem(R.id.action_field).isVisible = true
+//            navMenu.findItem(R.id.action_crop_calendar).isVisible = true
+//        } else {
+//            navMenu.findItem(R.id.action_field).isVisible = false
+//            navMenu.findItem(R.id.action_crop_calendar).isVisible = false
+//
+//        }
+//    }
 
 
     /**User define Callback*/
@@ -292,21 +296,23 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
             ivFilter -> {
                 filterDialog()
             }
+
+            ivQrImage -> {
+                AlertUtil.imageDialog(this, AlertUtil.generateQR(farmerId, this))
+            }
+            llProfile -> {
+                IntentUtil.moveScreenIntent(this, ProfileActivity::class.java, false)
+            }
             tvApply -> {
                 alertDialog.dismiss()
-//                progress.visibility = View.VISIBLE
-//                viewModel.getScanHistory(filterData)
+                progress.visibility = View.VISIBLE
+                viewModel.getScanHistory(filterData)
             }
             tvCancel -> {
                 alertDialog.dismiss()
+                filterData.clear()
+                viewModel.getScanHistory(filterData)
             }
-            ivQrImage -> AlertUtil.imageDialog(this, AlertUtil.generateQR("123456", this))
-            llProfile -> IntentUtil.moveScreenIntent(this, ProfileActivity::class.java, false)
-//            viewAllPayment -> IntentUtil.moveScreenIntent(
-//                this,
-//                PaymentHistoryActivity::class.java,
-//                false
-//            )
         }
     }
 
@@ -327,28 +333,37 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
     override fun onNothingSelected(p0: AdapterView<*>?) {
     }
 
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, pos: Int, p3: Long) {
-//        when (pos) {
-//           // 0 -> viewModel.getScansListVm(token, currentDay, currentDay)
-//            0 -> viewModel.getScansListVm(token, "", "")
-//            1 -> viewModel.getScansListVm(token, currentDay, monthDay)
-//            2 -> viewModel.getScansListVm(token, currentDay, weekDay)
-//
-//        }
-        when (pos) {
-            0 -> viewModel.getScanHistory(filterData)
-            1 -> {
+    override fun onItemSelected(spinner: AdapterView<*>?, p1: View?, pos: Int, p3: Long) {
+        when (spinner) {
 
-                filterData["date_from"] = timeToEpoch(monthDay).toString()
-                filterData["date_to"] = timeToEpoch(currentDay).toString()
+            spFilter -> {
+                when (pos) {
+                    0 -> viewModel.getScanHistory(filterData)
+                    1 -> {
 
-                viewModel.getScanHistory(filterData)
+                        filterData["date_from"] = timeToEpoch(monthDay).toString()
+                        filterData["date_to"] = timeToEpoch(currentDay).toString()
+
+                        viewModel.getScanHistory(filterData)
+                    }
+
+                    2 -> {
+                        filterData["date_from"] = timeToEpoch(weekDay).toString()
+                        filterData["date_to"] = timeToEpoch(currentDay).toString()
+                        viewModel.getScanHistory(filterData)
+                    }
+
+
+                }
             }
-
-            2 -> {
-                filterData["date_from"] = timeToEpoch(weekDay).toString()
-                filterData["date_to"] = timeToEpoch(currentDay).toString()
-                viewModel.getScanHistory(filterData)
+            spCommodity -> {
+                if (pos > 0) {
+                    filterData["commodity_id"] =
+                        viewModel.commodityList[pos - 1].commodity_id.toString()
+                    commodityPos = pos
+                } else if (pos == 0) {
+                    filterData.remove("commodity_id")
+                }
             }
         }
     }
@@ -374,6 +389,15 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
         tvApply.setOnClickListener(this)
         tvCancel.setOnClickListener(this)
 
+        commodities.clear()
+        commodities.add("Select commodity")
+        for (i in 0 until viewModel.commodityList.size) {
+            commodities.add(viewModel.commodityList[i].commodity_name.toString())
+        }
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, commodities)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spCommodity.adapter = adapter
+
         alertDialog = dialogBuilder.create()
         alertDialog.setCancelable(false)
         alertDialog.show()
@@ -384,9 +408,9 @@ class TeaQualityAnalysisActivity : BaseActivity(), View.OnClickListener,
         }, 1000)
     }
 
-    fun setFilterData()
-    {
-        //viewModel.
+    fun setFilterData() {
+        if (commodityPos != 0 && commodities.size >= commodityPos)
+            spCommodity.setSelection(commodityPos)
     }
 
     fun timeToEpoch(date: String): Long {

@@ -53,12 +53,13 @@ class SplashActivity : BaseActivity() {
         // Color by default in Base color decided
         if(SessionClass(this).getLogged())
         {
-            when(SessionClass(this).getAppName()) {
-                Constant.Tea -> {moveScreenIntent(this, TeaQualityAnalysisActivity::class.java, true)}
-                Constant.SpecxPhy -> {moveScreenIntent(this, SpecxQualityAnalysisActivity::class.java, true)}
-                Constant.SpecxChem -> {moveScreenIntent(this, QASpecxChemicalActivity::class.java, true)}
-
-            }
+            moveScreenIntent(this, TeaQualityAnalysisActivity::class.java, true)
+//            when(SessionClass(this).getAppName()) {
+//                Constant.Tea -> {moveScreenIntent(this, TeaQualityAnalysisActivity::class.java, true)}
+//                Constant.SpecxPhy -> {moveScreenIntent(this, SpecxQualityAnalysisActivity::class.java, true)}
+//                Constant.SpecxChem -> {moveScreenIntent(this, QASpecxChemicalActivity::class.java, true)}
+//
+//            }
         }
         else
         {moveScreenIntent(this, LoginActivity::class.java, true)}

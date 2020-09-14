@@ -14,5 +14,8 @@ enum class LoginState {
     QualixLoginSuccess,
     QualixLoginFailure,
 
+    VMSLoginSuccess,
+    VMSLoginFailure,
+
     TokenExpire
 }

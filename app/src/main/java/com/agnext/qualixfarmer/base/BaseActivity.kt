@@ -82,6 +82,10 @@ open class BaseActivity : AppCompatActivity() {
         return  "Bearer " + SessionClass(context).getUserToken()
     }
 
+    fun  qualixToken():String
+    {
+        return "Bearer " + Constant.token
+    }
     fun logout(context: Context) {
         SessionClass(context as Activity).setLogged(
             false,

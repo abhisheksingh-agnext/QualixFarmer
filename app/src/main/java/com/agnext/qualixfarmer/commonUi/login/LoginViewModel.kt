@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.agnext.qualixfarmer.network.Response.OauthResponse
+import com.agnext.qualixfarmer.network.Response.VmsLoginRes
 import com.agnext.sensenextmyadmin.utils.extensions.ScreenState
 
 class LoginViewModel(private val loginInteractor: LoginInteractor) : ViewModel(),
@@ -24,9 +25,14 @@ class LoginViewModel(private val loginInteractor: LoginInteractor) : ViewModel()
     val loginResponse: LiveData<LoginResponse>
         get() = _loginResponse
 
+
     fun onLoginClicked(username: String, password: String, deviceToken: String) {
         _loginState.value = ScreenState.Loading
-        loginInteractor.login(username, password, deviceToken, this)
+        val requestBody = HashMap<String, String>()
+        requestBody["email"] = username
+        requestBody["password"] = password
+        requestBody["deviceToken"] = deviceToken
+        loginInteractor.vmsLogin(requestBody, deviceToken, this)
     }
 
     fun qualixLogin() {
@@ -93,6 +99,15 @@ class LoginViewModel(private val loginInteractor: LoginInteractor) : ViewModel()
     }
 
     override fun onQualixLoginFailure(s: String) {
+        _loginState.value = ScreenState.Render(LoginState.QualixLoginFailure)
+    }
+
+    override fun onVmsLoginSuccess(body: VmsLoginRes) {
+        _loginState.value = ScreenState.Render(LoginState.VMSLoginSuccess)
+    }
+
+    override fun onVmsLoginError(s: String) {
+        _loginState.value = ScreenState.Render(LoginState.VMSLoginFailure)
     }
 
 

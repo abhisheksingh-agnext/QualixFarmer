@@ -11,10 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.agnext.qualixfarmer.R
 import com.agnext.qualixfarmer.base.BaseActivity
 import com.agnext.qualixfarmer.base.Constant.Companion.REQUEST_FARM
+import com.agnext.qualixfarmer.base.SessionClass
 import com.agnext.qualixfarmer.fields.addField.AddFarmActivity
 import com.agnext.qualixfarmer.fields.farmDetail.FarmDetailActivity
 import com.agnext.qualixfarmer.fields.updateField.UpdateFarmActivity
-import com.agnext.qualixfarmer.network.Response.ResAllFarms
+import com.agnext.qualixfarmer.network.Response.FarmRes
 import com.agnext.qualixfarmer.utils.AlertUtil
 import com.agnext.sensenextmyadmin.utils.extensions.ScreenState
 import com.google.gson.Gson
@@ -48,7 +49,7 @@ class FieldListActivity : BaseActivity(), View.OnClickListener, FarmListCallback
         //VM
         viewModel = ViewModelProvider(
             this, FieldListViewModelFactory(
-                FieldInteractor()
+                FieldInteractor(this)
             )
         )[FieldListViewModel::class.java]
         viewModel!!.fieldListState.observe(::getLifecycle, ::updateUI)
@@ -60,7 +61,7 @@ class FieldListActivity : BaseActivity(), View.OnClickListener, FarmListCallback
 
         progress.visibility = View.VISIBLE
         //action
-        viewModel!!.getAllFarmVM(userToken(this))
+        viewModel!!.getAllFarmVM(SessionClass(this).getVMSToken(), SessionClass(this).getVMSId())
 
     }
 
@@ -93,7 +94,10 @@ class FieldListActivity : BaseActivity(), View.OnClickListener, FarmListCallback
                 AlertUtil.showToast(this, "Unable to delete the farm")
             }
             FieldListState.FarmDeleteSuccess -> {
-                viewModel!!.getAllFarmVM(userToken(this))
+                viewModel!!.getAllFarmVM(
+                    SessionClass(this).getVMSToken(),
+                    SessionClass(this).getVMSId()
+                )
             }
 
         }
@@ -120,7 +124,10 @@ class FieldListActivity : BaseActivity(), View.OnClickListener, FarmListCallback
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_FARM) {
             if (resultCode == Activity.RESULT_OK) {
-                viewModel!!.getAllFarmVM(userToken(this))
+                viewModel!!.getAllFarmVM(
+                    SessionClass(this).getVMSToken(),
+                    SessionClass(this).getVMSId()
+                )
             }
         }
     }
@@ -132,20 +139,23 @@ class FieldListActivity : BaseActivity(), View.OnClickListener, FarmListCallback
 
     /**Callback*/
     override fun onClickItem(position: Int) {
-        val fieldData: ResAllFarms = viewModel!!.fieldList.value!![position]
+        val fieldData: FarmRes = viewModel!!.fieldList.value!![position]
         val gson = Gson()
-        val type = object : TypeToken<ResAllFarms>() {}.type
+        val type = object : TypeToken<FarmRes>() {}.type
         val json = gson.toJson(fieldData, type)
         var intentWithData = Intent(this, FarmDetailActivity::class.java)
         intentWithData.putExtra("jsonObject", json)
         startActivity(intentWithData)
-
     }
 
     override fun editFarmCallback(pos: Int) {
+        val fieldData: FarmRes = viewModel!!.fieldList.value!![pos]
+        val gson = Gson()
+        val type = object : TypeToken<FarmRes>() {}.type
+        val json = gson.toJson(fieldData, type)
         var intentWithData = Intent(this, UpdateFarmActivity::class.java)
-        intentWithData.putExtra("farmId", viewModel!!.fieldList.value!![pos].farmId!!)
-        startActivity(intentWithData)
+        intentWithData.putExtra("jsonObject", json)
+        startActivityForResult(intentWithData, REQUEST_FARM)
     }
 
     override fun deleteFarmCallback(position: Int) {
@@ -167,7 +177,10 @@ class FieldListActivity : BaseActivity(), View.OnClickListener, FarmListCallback
             .setNegativeButton(android.R.string.cancel, null)
             .setPositiveButton(android.R.string.ok) { _, _ ->
 
-                viewModel!!.deleteFarm(userToken(this), viewModel!!.fieldList.value!![pos].farmId!!)
+                viewModel!!.deleteFarm(
+                    userToken(this),
+                    viewModel!!.fieldList.value!![pos].plot_id!!
+                )
             }
             .show()
     }

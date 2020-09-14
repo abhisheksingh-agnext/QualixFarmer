@@ -25,6 +25,10 @@ public class ApiClient {
     public static Retrofit retrofit = null;
     private static Retrofit scmRetrofit = null;
     private static Retrofit oauthRetrofit = null;
+    private static Retrofit vmsRetrofit = null;
+    private static Retrofit dcmRetrofit = null;
+
+
 
     private static final String BASE_URL = "http://23.98.216.140";
     private static GsonConverterFactory gsonFactory = null;
@@ -61,7 +65,7 @@ public class ApiClient {
     public static Retrofit getClient() {
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(Constant.BaseURl)
+                .baseUrl("http://23.98.216.140:5679")
                 .addConverterFactory(getGsonFactory())
                 .client(getOkhttpClient())
                 .build();
@@ -89,7 +93,29 @@ public class ApiClient {
                     .client(getOkhttpClient(context))
                     .build();
         }
-
         return oauthRetrofit;
+    }
+
+    public static Retrofit getDCMClient(Context context) {
+        if (dcmRetrofit == null) {
+            dcmRetrofit = new Retrofit.Builder()
+                    .baseUrl(String.format("%s:8072", BASE_URL))
+                    .addConverterFactory(new NullOnEmptyConverterFactory())
+                    .addConverterFactory(getGsonFactory())
+                    .client(getOkhttpClient(context))
+                    .build();
+        }
+        return dcmRetrofit;
+    }
+    public static Retrofit getVMSClient(Context context) {
+        if (vmsRetrofit == null) {
+            vmsRetrofit = new Retrofit.Builder()
+                    .baseUrl(String.format("%s:8074", BASE_URL))
+                    .addConverterFactory(new NullOnEmptyConverterFactory())
+                    .addConverterFactory(getGsonFactory())
+                    .client(getOkhttpClient(context))
+                    .build();
+        }
+        return vmsRetrofit;
     }
 }

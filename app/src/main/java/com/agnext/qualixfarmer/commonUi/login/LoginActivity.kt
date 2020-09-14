@@ -3,14 +3,14 @@ package com.agnext.qualixfarmer.commonUi.login
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.agnext.qualixfarmer.R
-import com.agnext.qualixfarmer.base.BaseActivity
-import com.agnext.qualixfarmer.base.Constant
-import com.agnext.qualixfarmer.base.SessionClass
+import com.agnext.qualixfarmer.base.*
 import com.agnext.qualixfarmer.commonUi.registerUser.signUp.SignUpActivity
 import com.agnext.qualixfarmer.commonUi.splash.SplashActivity
+import com.agnext.qualixfarmer.tea.qualityAnalysis.TeaQualityAnalysisActivity
 import com.agnext.qualixfarmer.utils.AlertUtil
 import com.agnext.qualixfarmer.utils.IntentUtil
 import com.agnext.qualixfarmer.utils.IntentUtil.Companion.moveScreenIntent
@@ -19,17 +19,19 @@ import com.agnext.sensenextmyadmin.ui.auth.login.LoginState
 import com.agnext.sensenextmyadmin.ui.auth.login.LoginViewModel
 import com.agnext.sensenextmyadmin.ui.auth.login.LoginViewModelFactory
 import com.agnext.sensenextmyadmin.utils.extensions.ScreenState
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseApp
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.layout_progress.*
+import timber.log.Timber
 
 
 class LoginActivity : BaseActivity(), View.OnClickListener
 //   , AdapterView.OnItemSelectedListener
 {
-
-
     private lateinit var viewModel: LoginViewModel
+    var firebaseToken: String?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,11 +53,21 @@ class LoginActivity : BaseActivity(), View.OnClickListener
     fun initView() {
         btn_login!!.setOnClickListener(this)
         tvNewUser!!.setOnClickListener(this)
-         // spAppType.onItemSelectedListener = this
+        // spAppType.onItemSelectedListener = this
         // underlineText("Don't have an Account? Register here.")
 
         //Qualix Token
 //        viewModel.oauth()
+
+        FirebaseInstanceId.getInstance().instanceId
+            .addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    Log.v("token", task.exception.toString())
+                    return@OnCompleteListener
+                }
+                firebaseToken = task.result?.token
+                Log.v("token", firebaseToken)
+            })
     }
 
     /**UI  State Observer*/
@@ -97,16 +109,32 @@ class LoginActivity : BaseActivity(), View.OnClickListener
                 )
             }
             LoginState.AuthSuccess -> {
-                viewModel.qualixLogin()
+                //  viewModel.qualixLogin()
+                when (SessionClass(this).getAppName()) {
+                    Constant.Tea -> SessionClass(this).setTheme(Constant.THEME_1)
+                    Constant.SpecxPhy -> SessionClass(this).setTheme(Constant.THEME_2)
+                    Constant.SpecxChem -> SessionClass(this).setTheme(Constant.THEME_3)
+                }
+                moveScreenIntent(this, SplashActivity::class.java, true)
             }
             LoginState.AuthFailure -> {
             }
             LoginState.QualixLoginSuccess -> {
+                if (hasConnection(this))
+                    viewModel.onLoginClicked(
+                        et_username.text.toString(),
+                        et_password.text.toString(),
+                        getFirebaseToken(this)
+                    )
+                else
+                    AlertUtil.showToast(this, getString(R.string.internet_issue))
             }
-            LoginState.QualixLoginFailure -> {
+            LoginState.VMSLoginSuccess -> {
+                IntentUtil.moveNextScreen(this, TeaQualityAnalysisActivity::class.java)
             }
-
-
+            LoginState.VMSLoginFailure -> {
+                AlertUtil.showToast(this, getString(R.string.error_login))
+            }
         }
     }
 
@@ -122,17 +150,15 @@ class LoginActivity : BaseActivity(), View.OnClickListener
     override fun onClick(v: View?) {
         when (v) {
             btn_login ->
-                viewModel.oauth()
-/*
                 if (hasConnection(this))
                     viewModel.onLoginClicked(
                         et_username.text.toString(),
                         et_password.text.toString(),
-                        getFirebaseToken(this)
+                        firebaseToken!!
                     )
                 else
                     AlertUtil.showToast(this, getString(R.string.internet_issue))
-*/
+            //  viewModel.oauth()
             tvNewUser -> {
                 IntentUtil.moveNextScreen(
                     this,
